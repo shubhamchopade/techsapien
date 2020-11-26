@@ -25,25 +25,13 @@ export const Footer = () => {
     <FooterWrapper>
       <FooterSocialWrapper>
         <FooterSocialIcons>
-          <a
-            href="https://facebook.com"
-            target="_blank"
-            rel="noopener noereferrer"
-          >
+          <a href="https://facebook.com" target="_blank" rel="noereferrer">
             <img src={data.facebook.publicURL} alt="facebook logo" />
           </a>
-          <a
-            href="https://instagram.com"
-            target="_blank"
-            rel="noopener noereferrer"
-          >
+          <a href="https://instagram.com" target="_blank" rel="noereferrer">
             <img src={data.instagram.publicURL} alt="instagram logo" />
           </a>
-          <a
-            href="https://twitter.com"
-            target="_blank"
-            rel="noopener noereferrer"
-          >
+          <a href="https://twitter.com" target="_blank" rel="noereferrer">
             <img src={data.twitter.publicURL} alt="twitter logo" />
           </a>
         </FooterSocialIcons>

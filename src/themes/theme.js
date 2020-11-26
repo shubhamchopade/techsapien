@@ -1,7 +1,7 @@
 export default {
   fonts: {
     main: "Poppins",
-    code: "Roboto Mono",
+    code: "Roboto Mono, monospace",
   },
   colors: {
     main1: "hsl(207, 70%, 59%)",
