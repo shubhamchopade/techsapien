@@ -42,7 +42,7 @@ export const P = styled.p`
   color: ${props => {
     switch (props.color) {
       case "dark1":
-        return props.theme.colors.dark1
+        return props.theme.colors.textMain
       case "dark2":
         return props.theme.colors.dark2
       case "dark3":
@@ -66,7 +66,7 @@ export const H1 = styled.h1`
   color: ${props => {
     switch (props.color) {
       case "dark1":
-        return props.theme.colors.dark1
+        return props.theme.colors.textMain
       case "dark2":
         return props.theme.colors.dark2
       case "dark3":
@@ -89,7 +89,7 @@ export const H2 = styled.h2`
   color: ${props => {
     switch (props.color) {
       case "dark1":
-        return props.theme.colors.dark1
+        return props.theme.colors.textMain
       case "dark2":
         return props.theme.colors.dark2
       case "dark3":

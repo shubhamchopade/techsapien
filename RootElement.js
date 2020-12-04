@@ -5,7 +5,7 @@ import React, { useState } from "react"
 import { DarkContext } from "./src/store/context"
 import "./language-tabs.css"
 import { MDXProvider } from "@mdx-js/react"
-import { Code } from "./src/components"
+import { Button, Code, Footer } from "./src/components"
 
 const GlobalStyles = createGlobalStyle`
     *{
@@ -17,7 +17,7 @@ const GlobalStyles = createGlobalStyle`
     body, html{
         font-family: ${props => props.theme.fonts.main};
         height: 100%;
-        background-color: ${props => props.theme.colors.bg}
+        background-color: ${props => props.theme.colors.bgSecondary}
     }
 `
 
@@ -32,6 +32,8 @@ const components = {
     return <pre {...preProps} />
   },
   wrapper: ({ children }) => <>{children}</>,
+  Button,
+  Footer,
 }
 
 export const RootElement = ({ element }) => {
