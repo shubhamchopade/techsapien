@@ -15,6 +15,7 @@ export const lightTheme = {
     buttonMain: "#334E68",
     bgMain: "#102A43",
     bgSecondary: "#243b53",
+    navBg: "#1F2933",
   },
   breakpoints: {
     mobile: "only screen and (max-width: 50rem)",
@@ -55,6 +56,7 @@ export const darkTheme = {
     buttonMain: "#BCCCDC",
     bgMain: "#F5F7FA",
     bgSecondary: "#d9e2ec",
+    navBg: "#234E52",
   },
   breakpoints: {
     mobile: "only screen and (max-width: 50rem)",

@@ -13,8 +13,8 @@ const allPosts = ({ pageContext, data }) => {
   const { currentPage, numPage } = pageContext
   const isFirst = currentPage === 1
   const isLast = currentPage === numPage
-  const prevPage = currentPage - 1 === 1 ? "/" : `/${currentPage - 1}`
-  const nextPage = `/${currentPage + 1}`
+  const prevPage = currentPage - 1 === 1 ? "/blog/" : `/blog/${currentPage - 1}`
+  const nextPage = `/blog/${currentPage + 1}`
   const posts = data.allMdx.edges
 
   return (

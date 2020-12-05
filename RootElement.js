@@ -5,7 +5,7 @@ import React, { useState } from "react"
 import { DarkContext } from "./src/store/context"
 import "./language-tabs.css"
 import { MDXProvider } from "@mdx-js/react"
-import { Button, Code, Footer } from "./src/components"
+import { Button, Code, Footer, Nav } from "./src/components"
 
 const GlobalStyles = createGlobalStyle`
     *{
@@ -46,7 +46,9 @@ export const RootElement = ({ element }) => {
       <DarkContext.Provider value={[isDark, setIsDark]}>
         <ThemeProvider theme={themeMode}>
           <GlobalStyles />
+          <Nav />
           {element}
+          <Footer />
         </ThemeProvider>
       </DarkContext.Provider>
     </MDXProvider>

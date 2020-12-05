@@ -1,8 +1,13 @@
-import { NavWrapper } from "../elements"
+import {
+  LogoLink,
+  NavWrapper,
+  StyledLink,
+  LinksContainer,
+  Toggle,
+} from "../elements"
 import React, { useContext } from "react"
 import { useStaticQuery, Link, graphql } from "gatsby"
 import { DarkContext } from "../store/context"
-import { Button } from "./Button"
 
 export const Nav = () => {
   const [isDark, setIsDark] = useContext(DarkContext)
@@ -17,17 +22,27 @@ export const Nav = () => {
   }
   const data = useStaticQuery(graphql`
     query {
-      logo: file(relativePath: { eq: "logo.svg" }) {
+      logo: file(relativePath: { eq: "header.svg" }) {
         publicURL
       }
     }
   `)
   return (
     <NavWrapper>
-      <Link to="/">
+      <LogoLink to="/">
         <img src={data.logo.publicURL} alt="Logo"></img>
-      </Link>
-      <button onClick={handleToggle}>dark</button>
+        <h1>
+          TECH<span>SAPIEN</span>
+        </h1>
+      </LogoLink>
+      <LinksContainer>
+        <StyledLink to="/about">About</StyledLink>
+        <StyledLink to="/course">Course</StyledLink>
+        <StyledLink to="/blog">Blog</StyledLink>
+        <StyledLink to="/resources">Resources</StyledLink>
+      </LinksContainer>
+
+      <Toggle onClick={handleToggle}>{isDark === "dark" ? "🌑" : "🌞"}</Toggle>
     </NavWrapper>
   )
 }
