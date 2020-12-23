@@ -1,7 +1,8 @@
 ---
-title: second post
+title: Location API
 date: 2020-6-2
-excerpt: My second post
+excerpt: Location API using HTML5 and Javascript
 slug: second
-featureImage: second.png
+featureImage: 3.png
+category: Development
 ---

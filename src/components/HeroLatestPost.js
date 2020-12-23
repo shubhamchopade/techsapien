@@ -1,5 +1,6 @@
 import { Link, useStaticQuery } from "gatsby"
 import React from "react"
+import { PostCard } from "./post-card/PostCard"
 
 const HeroLatestPost = () => {
   const data = useStaticQuery(graphql`
@@ -12,6 +13,14 @@ const HeroLatestPost = () => {
               date
               excerpt
               slug
+              category
+              featureImage {
+                childImageSharp {
+                  fixed(fit: CONTAIN, width: 300) {
+                    ...GatsbyImageSharpFixed
+                  }
+                }
+              }
             }
             id
           }
@@ -23,9 +32,13 @@ const HeroLatestPost = () => {
     <div>
       {data.allMdx.edges.map(edge => (
         <Link to={`blogs/${edge.node.frontmatter.slug}`}>
-          <p>{edge.node.frontmatter.title}</p>
-          <p>{edge.node.frontmatter.date}</p>
-          <p>{edge.node.frontmatter.excerpt}</p>
+          <PostCard
+            topText={edge.node.frontmatter.title}
+            pill={edge.node.frontmatter.category}
+            title={edge.node.frontmatter.title}
+            image={edge.node.frontmatter.featureImage.childImageSharp.fixed}
+            description={edge.node.frontmatter.excerpt}
+          />
         </Link>
       ))}
     </div>

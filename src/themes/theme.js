@@ -16,6 +16,9 @@ export const lightTheme = {
     bgMain: "#102A43",
     bgSecondary: "#243b53",
     navBg: "#1F2933",
+    pill: {
+      development: "#bb6bd9",
+    },
   },
   breakpoints: {
     mobile: "only screen and (max-width: 50rem)",
@@ -50,13 +53,16 @@ export const darkTheme = {
     dark1: "#1F2933",
     dark2: "#323F4B",
     dark3: "#3E4C59",
-    light1: "#F5F7FA",
+    light1: "#334766",
     light2: "#F0F4F8",
     textMain: "#102A43",
     buttonMain: "#BCCCDC",
     bgMain: "#F5F7FA",
     bgSecondary: "#d9e2ec",
     navBg: "#234E52",
+    pill: {
+      development: "#bb6bd9",
+    },
   },
   breakpoints: {
     mobile: "only screen and (max-width: 50rem)",

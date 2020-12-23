@@ -5,11 +5,17 @@ export const HeroWrapper = styled.main`
   grid-template-columns: 1fr 1fr;
   place-items: center;
   color: ${props => props.theme.colors.textMain};
+  height: 80vh;
+  max-height: 500px;
+  position: relative;
+  max-width: 1440px;
+  margin: 0 auto;
 `
 
 export const HeroText = styled.section`
   max-width: 30rem;
   margin: 0 auto;
+
   h1 {
     font-size: 5rem;
     font-weight: normal;
@@ -29,5 +35,10 @@ export const HeroText = styled.section`
     margin: 3rem 0 0 0;
     line-height: 200%;
     font-size: 1rem;
+  }
+  img {
+    position: absolute;
+    top: 0;
+    right: 0;
   }
 `

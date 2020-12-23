@@ -1,5 +1,5 @@
 import React from "react"
-import { graphql } from "gatsby"
+import { graphql, Link } from "gatsby"
 import {
   Container,
   Content,
@@ -8,6 +8,8 @@ import {
   Pagination,
 } from "../components"
 import { H1, P } from "../elements"
+import human from "../images/1.svg"
+import { PostCard } from "../components/post-card/PostCard"
 
 const allPosts = ({ pageContext, data }) => {
   const { currentPage, numPage } = pageContext
@@ -18,30 +20,31 @@ const allPosts = ({ pageContext, data }) => {
   const posts = data.allMdx.edges
 
   return (
-    <Container>
-      <FeatureImage />
-      <Content>
-        <H1 textAlign="center" margin="0 0 1rem 0">
-          Best Heading
-        </H1>
-        <P color="dark2" textAlign="center"></P>
-        {posts.map(post => (
-          <ContentCard
-            key={post.node.frontmatter.slug}
-            date={post.node.frontmatter.date}
-            title={post.node.frontmatter.title}
-            excerpt={post.node.frontmatter.excerpt}
-            slug={post.node.frontmatter.slug}
-          />
+    <>
+      <Container>
+        {data.allMdx.edges.map(edge => (
+          <Link to={`/blog/${edge.node.frontmatter.slug}`}>
+            <PostCard
+              topText={edge.node.frontmatter.title}
+              pill={edge.node.frontmatter.category}
+              title={edge.node.frontmatter.title}
+              image={
+                edge.node.frontmatter.featureImage !== null
+                  ? edge.node.frontmatter.featureImage.childImageSharp.fixed
+                  : human
+              }
+              description={edge.node.frontmatter.excerpt}
+            />
+          </Link>
         ))}
-      </Content>
+      </Container>
       <Pagination
         isFirst={isFirst}
         isLast={isLast}
         prevPage={prevPage}
         nextPage={nextPage}
       />
-    </Container>
+    </>
   )
 }
 
@@ -61,6 +64,14 @@ export const PageQuery = graphql`
             excerpt
             slug
             title
+            category
+            featureImage {
+              childImageSharp {
+                fixed(fit: CONTAIN, width: 300) {
+                  ...GatsbyImageSharpFixed
+                }
+              }
+            }
           }
         }
       }

@@ -2,6 +2,7 @@ import React from "react"
 import HeroLatestPost from "../components/HeroLatestPost"
 import { HeroText, HeroWrapper } from "../elements/hero/HeroElements"
 import dots from "../images/bgDots.svg"
+import blob from "../images/bgBlob.svg"
 
 const index = () => {
   return (
@@ -16,6 +17,7 @@ const index = () => {
           tutorials along with the best resources to get started with front-end
           development! Get Started Now
         </p>
+        <img src={blob} />
       </HeroText>
       <HeroLatestPost />
     </HeroWrapper>
