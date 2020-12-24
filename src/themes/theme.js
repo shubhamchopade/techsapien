@@ -18,6 +18,9 @@ export const lightTheme = {
     navBg: "#1F2933",
     pill: {
       development: "#bb6bd9",
+      motivation: "#6fcf97",
+      productivity: "#56CCF2",
+      default: "#14c487",
     },
   },
   breakpoints: {
@@ -62,6 +65,9 @@ export const darkTheme = {
     navBg: "#234E52",
     pill: {
       development: "#bb6bd9",
+      motivation: "#6fcf97",
+      productivity: "#56CCF2",
+      default: "#14c487",
     },
   },
   breakpoints: {
