@@ -31,10 +31,18 @@ export const PostCard = ({
 const PostCardWrapper = styled.div`
   height: 300px;
   width: 300px;
-  background-color: ${props => props.theme.colors.bgMain};
+  background-color: ${props => props.theme.colors.bgSecondary};
+  margin: 2rem 0;
   border-radius: 2rem;
   position: relative;
   overflow: hidden;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+  transition: cubic-bezier(0.165, 0.84, 0.44, 1) 0.2s;
+
+  &:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
 `
 const TopText = styled.h1`
   font-size: 5rem;

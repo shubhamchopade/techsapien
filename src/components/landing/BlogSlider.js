@@ -1,12 +1,13 @@
 import { Link, useStaticQuery } from "gatsby"
 import React from "react"
-import { StyledHeading } from "../elements/hero/HeroElements"
-import { PostCard } from "./post-card/PostCard"
+import { PostCard } from "../post-card/PostCard"
+import { Container } from "../../components"
+import human from "../../images/1.svg"
 
-const HeroLatestPost = () => {
+export const BlogSlider = () => {
   const data = useStaticQuery(graphql`
     query {
-      allMdx(limit: 1, sort: { fields: frontmatter___date, order: DESC }) {
+      allMdx(limit: 3) {
         edges {
           node {
             frontmatter {
@@ -30,21 +31,22 @@ const HeroLatestPost = () => {
     }
   `)
   return (
-    <div>
-      <StyledHeading>LATEST</StyledHeading>
+    <Container>
       {data.allMdx.edges.map(edge => (
-        <Link to={`blog/${edge.node.frontmatter.slug}`}>
+        <Link to={`/blog/${edge.node.frontmatter.slug}`}>
           <PostCard
             topText={edge.node.frontmatter.title}
             pill={edge.node.frontmatter.category}
             title={edge.node.frontmatter.title}
-            image={edge.node.frontmatter.featureImage.childImageSharp.fixed}
+            image={
+              edge.node.frontmatter.featureImage !== null
+                ? edge.node.frontmatter.featureImage.childImageSharp.fixed
+                : human
+            }
             description={edge.node.frontmatter.excerpt}
           />
         </Link>
       ))}
-    </div>
+    </Container>
   )
 }
-
-export default HeroLatestPost

@@ -60,8 +60,8 @@ export const darkTheme = {
     light2: "#F0F4F8",
     textMain: "#102A43",
     buttonMain: "#BCCCDC",
-    bgMain: "#F5F7FA",
-    bgSecondary: "#d9e2ec",
+    bgMain: "transparent",
+    bgSecondary: "#fff",
     navBg: "#234E52",
     pill: {
       development: "#bb6bd9",
