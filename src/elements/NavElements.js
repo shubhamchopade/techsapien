@@ -58,8 +58,20 @@ export const LogoLink = styled(StyledLink)`
   align-items: center;
   padding: 0;
   margin: 0 1.2rem;
-  width: 11rem;
+  width: 12rem;
   min-width: 11rem;
+  position: relative;
+  overflow: hidden;
+
+  &:hover {
+    h1 {
+      display: inline-block;
+      transform: translateX(30px);
+      transition: cubic-bezier(0.075, 0.82, 0.165, 1) 0.4s;
+      opacity: 1;
+    }
+  }
+
   img {
     width: 1.5rem;
   }
@@ -67,6 +79,9 @@ export const LogoLink = styled(StyledLink)`
   h1 {
     font-size: 1.5rem;
     font-weight: normal;
+    position: absolute;
+    transform: translateX(-150px);
+    opacity: 0;
 
     span {
       font-weight: bold;

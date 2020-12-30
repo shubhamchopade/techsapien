@@ -1,13 +1,63 @@
 import styled from "styled-components"
 
+export const PostHeader = styled.section`
+  background-color: ${props => {
+    switch (props.color) {
+      case "development":
+        return props.theme.colors.pill.development
+      case "motivation":
+        return props.theme.colors.pill.motivation
+      case "productivity":
+        return props.theme.colors.pill.productivity
+      default:
+        return props.theme.colors.pill.default
+    }
+  }};
+  height: 75vh;
+  min-height: 30rem;
+  text-align: center;
+  color: ${props => props.theme.colors.textMain};
+
+  div {
+    p {
+      text-transform: uppercase;
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+
+    h1 {
+      font-size: 3rem;
+    }
+
+    div {
+      display: flex;
+      justify-content: space-around;
+      max-width: 20rem;
+      margin: 0 auto;
+      align-items: center;
+
+      p {
+        font-size: 1rem;
+        font-weight: 600;
+      }
+
+      svg {
+        color: ${props => props.theme.colors.textMain};
+        margin: 2rem 0 0 0;
+        &:hover {
+          filter: brightness(10);
+          cursor: pointer;
+        }
+      }
+    }
+  }
+`
+
 export const PostWrapper = styled.main`
-  grid-column: 4 / span 8;
-  grid-row: 3 / span 5;
-  background-color: ${props => props.theme.colors.light2};
-  padding: ${props =>
-    `${props.theme.spacing.xLarge} ${props.theme.spacing.xxLarge}`};
-  box-shadow: ${props => props.theme.shadows.shadow1};
+  max-width: 40rem;
+  margin: 0 auto;
   z-index: 10;
+  font-family: ${props => props.theme.fonts.blog};
 
   h1,
   h2,
@@ -18,7 +68,7 @@ export const PostWrapper = styled.main`
     color: ${props => props.theme.colors.dark1};
   }
 
-  h1:not(:first-child),
+  h1,
   h2,
   h3,
   h4,
@@ -128,13 +178,5 @@ export const PostWrapper = styled.main`
   }
   th {
     width: 100%;
-  }
-
-  @media ${props => props.theme.breakpoints.tablet} {
-    grid-column: 2 / span 6;
-  }
-  @media ${props => props.theme.breakpoints.mobile} {
-    padding: ${props =>
-      `${props.theme.spacing.xLarge} ${props.theme.spacing.xxLarge}`};
   }
 `

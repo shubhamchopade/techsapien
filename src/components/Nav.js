@@ -37,7 +37,7 @@ export const Nav = () => {
       </LogoLink>
       <LinksContainer>
         <StyledLink to="/about">About</StyledLink>
-        <StyledLink to="/course">Course</StyledLink>
+        <StyledLink to="/courses">Courses</StyledLink>
         <StyledLink to="/blog">Blog</StyledLink>
         <StyledLink to="/resources">Resources</StyledLink>
       </LinksContainer>

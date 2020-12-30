@@ -2,6 +2,7 @@ export const lightTheme = {
   fonts: {
     main: "Poppins",
     code: "Roboto Mono, monospace",
+    blog: "Inter",
   },
   colors: {
     main1: "hsl(207, 70%, 59%)",
@@ -49,6 +50,7 @@ export const darkTheme = {
   fonts: {
     main: "Poppins",
     code: "Roboto Mono, monospace",
+    blog: "Inter",
   },
   colors: {
     main1: "#102A43",

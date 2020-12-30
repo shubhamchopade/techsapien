@@ -16,6 +16,7 @@ import blob2 from "../images/bgBlob2.svg"
 import arrow from "../images/arrow.svg"
 import frontendRoadmap from "../images/frontend-cover.svg"
 import { BlogSlider } from "../components/landing/BlogSlider"
+import { Link } from "gatsby"
 
 const index = () => {
   return (
@@ -37,14 +38,16 @@ const index = () => {
         <HeroLatestPost />
       </HeroWrapper>
 
-      <StyledHeading>COURSES</StyledHeading>
-      <CoursesContainer>
-        <div>
-          <p>career</p>
-          <h1>Frontend development roadmap</h1>
-        </div>
-        <img src={frontendRoadmap} />
-      </CoursesContainer>
+      <StyledHeading margin="10rem 0 3rem 0">COURSES</StyledHeading>
+      <Link to="/course/frontend-development-roadmap">
+        <CoursesContainer>
+          <div>
+            <p>career</p>
+            <h1>Frontend development roadmap</h1>
+          </div>
+          <img src={frontendRoadmap} />
+        </CoursesContainer>
+      </Link>
 
       <BlogSliderContainer>
         <img src={blob2} />
@@ -70,6 +73,15 @@ const index = () => {
         </ResourcePill>
         <ResourcePill color="#56ccf2">
           REACT <img src={arrow} />
+        </ResourcePill>
+        <ResourcePill color="#F2994A">
+          FIREBASE <img src={arrow} />
+        </ResourcePill>
+        <ResourcePill color="#EB5757">
+          COLORS <img src={arrow} />
+        </ResourcePill>
+        <ResourcePill color="#27AE60">
+          BOOKS <img src={arrow} />
         </ResourcePill>
       </ResourcesContainer>
     </Landing>

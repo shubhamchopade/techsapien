@@ -13,7 +13,6 @@ export const HeroWrapper = styled.main`
   height: 80vh;
   max-height: 500px;
   position: relative;
-
   margin: 0 auto;
 
   img {
@@ -54,6 +53,7 @@ export const HeroText = styled.section`
     right: 0;
     user-select: none;
     z-index: -1;
+    width: 100%;
   }
 `
 
@@ -61,16 +61,28 @@ export const StyledHeading = styled.h1`
   color: ${props => props.theme.colors.textMain};
   font-size: 25px;
   text-align: center;
-  margin: 30px 0;
+  margin: ${props => (props.margin ? props.margin : "30px 0")};
 `
 
 export const CoursesContainer = styled.section`
   display: flex;
   align-items: center;
   border-radius: 2rem;
+  margin: 0 auto 8rem auto;
   color: ${props => props.theme.colors.textMain};
   background-color: #b1c2fd;
   position: relative;
+  max-width: 80%;
+  cursor: pointer;
+
+  &:hover {
+    h1 {
+      filter: brightness(20%);
+    }
+
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+    transition: cubic-bezier(0.165, 0.84, 0.44, 1) 0.2s;
+  }
 
   div {
     margin: 0 auto;
@@ -101,7 +113,8 @@ export const BlogSliderContainer = styled.div`
 
   img {
     position: absolute;
-    top: -40px;
+    top: -20px;
+    width: 100%;
     right: 0;
     user-select: none;
     z-index: -1;
@@ -109,6 +122,8 @@ export const BlogSliderContainer = styled.div`
 `
 export const ResourcesContainer = styled.div`
   display: flex;
+  justify-content: center;
+  align-items: center;
   flex-wrap: wrap;
 `
 
@@ -122,9 +137,18 @@ export const ResourcePill = styled.section`
   align-items: center;
   border-radius: 1rem;
   font-weight: 700;
+  color: ${props => props.theme.colors.textMain};
+  cursor: pointer;
+
+  &:hover {
+    img {
+      transform: translateX(3px);
+    }
+  }
 
   img {
     padding-left: 2rem;
     width: 100%;
+    filter: invert(100%);
   }
 `
