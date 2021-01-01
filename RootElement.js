@@ -6,7 +6,6 @@ import { DarkContext } from "./src/store/context"
 import "./language-tabs.css"
 import { MDXProvider } from "@mdx-js/react"
 import { Button, Code, Footer, Nav } from "./src/components"
-import { FEDCourse } from "./src/components/courses"
 
 const GlobalStyles = createGlobalStyle`
     *{
@@ -39,7 +38,6 @@ const components = {
   wrapper: ({ children }) => <>{children}</>,
   Button,
   Footer,
-  FEDCourse,
 }
 
 export const RootElement = ({ element }) => {

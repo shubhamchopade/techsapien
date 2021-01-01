@@ -139,16 +139,19 @@ export const ResourcePill = styled.section`
   border-radius: 1rem;
   font-weight: 700;
   color: ${props => props.theme.colors.textMain};
+
   cursor: pointer;
 
   &:hover {
     img {
-      transform: translateX(3px);
+      transform: translateX(4px);
     }
   }
 
   img {
     padding-left: 2rem;
+    transform: translateX(0px);
+    transition: ease-in-out 0.3s;
     width: 100%;
     filter: invert(100%);
   }

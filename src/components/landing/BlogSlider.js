@@ -1,4 +1,4 @@
-import { Link, useStaticQuery } from "gatsby"
+import { Link, useStaticQuery, graphql } from "gatsby"
 import React from "react"
 import { PostCard } from "../post-card/PostCard"
 import { Container } from "../../components"

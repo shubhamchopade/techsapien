@@ -40,6 +40,10 @@ exports.createPages = async function ({ actions, graphql }) {
     path: "/resource",
     component: require.resolve("./src/templates/allResources.js"),
   })
+  actions.createPage({
+    path: "/course",
+    component: require.resolve("./src/templates/allCourses.js"),
+  })
 
   data.allMdx.edges.forEach(edge => {
     if (edge.node.frontmatter.posttype === "resource") {
@@ -51,13 +55,22 @@ exports.createPages = async function ({ actions, graphql }) {
         component: require.resolve("./src/templates/singleResource.js"),
         context: { id },
       })
-    } else {
+    } else if (edge.node.frontmatter.posttype === "blog") {
       //Create Single Blog Posts
       const slug = `/blog/${edge.node.frontmatter.slug}`
       const id = edge.node.id
       actions.createPage({
         path: slug,
         component: require.resolve("./src/templates/singlePost.js"),
+        context: { id },
+      })
+    } else {
+      //Create Single Blog Posts
+      const slug = `/course/${edge.node.frontmatter.slug}`
+      const id = edge.node.id
+      actions.createPage({
+        path: slug,
+        component: require.resolve("./src/templates/singleCourse.js"),
         context: { id },
       })
     }
