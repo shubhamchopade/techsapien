@@ -9,6 +9,7 @@ exports.createPages = async function ({ actions, graphql }) {
               date
               excerpt
               slug
+              posttype
             }
             id
           }
@@ -35,14 +36,30 @@ exports.createPages = async function ({ actions, graphql }) {
     })
   })
 
-  //Create Single Blog Posts
+  actions.createPage({
+    path: "/resource",
+    component: require.resolve("./src/templates/allResources.js"),
+  })
+
   data.allMdx.edges.forEach(edge => {
-    const slug = `/blog/${edge.node.frontmatter.slug}`
-    const id = edge.node.id
-    actions.createPage({
-      path: slug,
-      component: require.resolve("./src/templates/singlePost.js"),
-      context: { id },
-    })
+    if (edge.node.frontmatter.posttype === "resource") {
+      //Create Single Resource
+      const slug = `/resource/${edge.node.frontmatter.slug}`
+      const id = edge.node.id
+      actions.createPage({
+        path: slug,
+        component: require.resolve("./src/templates/singleResource.js"),
+        context: { id },
+      })
+    } else {
+      //Create Single Blog Posts
+      const slug = `/blog/${edge.node.frontmatter.slug}`
+      const id = edge.node.id
+      actions.createPage({
+        path: slug,
+        component: require.resolve("./src/templates/singlePost.js"),
+        context: { id },
+      })
+    }
   })
 }

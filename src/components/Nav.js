@@ -39,7 +39,7 @@ export const Nav = () => {
         <StyledLink to="/about">About</StyledLink>
         <StyledLink to="/courses">Courses</StyledLink>
         <StyledLink to="/blog">Blog</StyledLink>
-        <StyledLink to="/resources">Resources</StyledLink>
+        <StyledLink to="/resource">Resources</StyledLink>
       </LinksContainer>
 
       <Toggle onClick={handleToggle}>{isDark === "dark" ? "🌑" : "🌞"}</Toggle>

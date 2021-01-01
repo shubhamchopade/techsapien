@@ -6,7 +6,11 @@ import { PostCard } from "./post-card/PostCard"
 const HeroLatestPost = () => {
   const data = useStaticQuery(graphql`
     query {
-      allMdx(limit: 1, sort: { fields: frontmatter___date, order: DESC }) {
+      allMdx(
+        limit: 1
+        sort: { fields: frontmatter___date, order: DESC }
+        filter: { frontmatter: { posttype: { eq: "blog" } } }
+      ) {
         edges {
           node {
             frontmatter {
