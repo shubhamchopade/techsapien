@@ -3,6 +3,7 @@ import styled from "styled-components"
 export const Landing = styled.main`
   max-width: 1440px;
   margin: 0 auto;
+  background-color: ${props => props.theme.colors.bgMain};
 `
 
 export const HeroWrapper = styled.main`

@@ -6,3 +6,26 @@ slug: javascript
 featureImage: 1.png
 category: productivity
 ---
+
+<FEDCourse />
+<Button children="CLICK ME" href="/blog"></Button>
+
+```javascript
+const [scroll, setScroll] = useState(0)
+
+useEffect(() => {
+  let progressBarHandler = () => {
+    const totalScroll = document.documentElement.scrollTop
+    const windowHeight =
+      document.documentElement.scrollHeight -
+      document.documentElement.clientHeight
+    const scroll = `${totalScroll / windowHeight}`
+
+    setScroll(scroll)
+  }
+
+  window.addEventListener("scroll", progressBarHandler)
+
+  return () => window.removeEventListener("scroll", progressBarHandler)
+})
+```
