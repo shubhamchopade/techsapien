@@ -5,6 +5,7 @@ import { H1, P, PostHeader } from "../elements"
 import { Container, Post, FeatureImage } from "../components"
 import Img from "gatsby-image"
 import styled from "styled-components"
+import { TableOfContents } from "../components/blog/TableOfContents"
 
 const singlePost = ({ data }) => {
   const featureImage = data.mdx.frontmatter.featureImage.childImageSharp.fixed
@@ -13,6 +14,8 @@ const singlePost = ({ data }) => {
     const options = { year: "numeric", month: "long", day: "numeric" }
     return new Date(dateString).toLocaleString(undefined, options)
   }
+
+  console.log(data.mdx.tableOfContents)
 
   return (
     <>
@@ -83,6 +86,9 @@ const singlePost = ({ data }) => {
         </div>
       </PostHeader>
       <Post>
+        {data.mdx.tableOfContents.items && (
+          <TableOfContents post={data.mdx.tableOfContents} />
+        )}
         <MDXRenderer>{data.mdx.body}</MDXRenderer>
       </Post>
     </>
@@ -94,6 +100,7 @@ export const PageQuery = graphql`
   query SinglePostsQuery($id: String!) {
     mdx(id: { eq: $id }) {
       body
+      tableOfContents
       frontmatter {
         date
         excerpt
