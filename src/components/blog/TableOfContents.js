@@ -13,7 +13,6 @@ export const TableOfContents = ({ post }) => {
       })
   })
 
-  console.log(url)
   return (
     <nav className="navbar">
       <Scrollspy items={url} currentClassName="is-current" className="toc-list">
