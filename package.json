@@ -23,7 +23,7 @@
     "gatsby-plugin-google-fonts": "^1.0.1",
     "gatsby-plugin-mdx": "^1.5.0",
     "gatsby-plugin-sharp": "^2.9.0",
-    "gatsby-plugin-styled-components": "^3.5.0",
+    "gatsby-plugin-styled-components": "^3.8.0",
     "gatsby-remark-autolink-headers": "^2.8.0",
     "gatsby-remark-images": "^3.6.0",
     "gatsby-source-filesystem": "^2.6.1",
