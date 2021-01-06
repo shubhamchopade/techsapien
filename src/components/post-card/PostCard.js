@@ -31,7 +31,6 @@ export const PostCard = ({
 const PostCardWrapper = styled.div`
   height: 300px;
   width: 300px;
-  background-color: ${props => props.theme.colors.bgSecondary};
   margin: 2rem 0;
   border-radius: 2rem;
   position: relative;

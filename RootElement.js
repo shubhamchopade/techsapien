@@ -39,11 +39,12 @@ const components = {
   Button,
   Footer,
 }
-
-if (typeof window !== "undefined") {
-  // eslint-disable-next-line global-require
-  require("smooth-scroll")('a[href*="#"]')
-}
+useEffect(() => {
+  if (typeof window !== "undefined") {
+    // eslint-disable-next-line global-require
+    require("smooth-scroll")('a[href*="#"]')
+  }
+}, [])
 
 export const RootElement = ({ element }) => {
   const [isDark, setIsDark] = useState("dark")

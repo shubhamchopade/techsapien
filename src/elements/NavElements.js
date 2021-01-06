@@ -62,6 +62,7 @@ export const LogoLink = styled(StyledLink)`
   min-width: 11rem;
   position: relative;
   overflow: hidden;
+  border-radius: 2rem;
 
   &:hover {
     h1 {
