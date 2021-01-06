@@ -16,6 +16,10 @@ export const HeroWrapper = styled.main`
   position: relative;
   margin: 0 auto;
 
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
+
   img {
     position: absolute;
     top: 50px;
