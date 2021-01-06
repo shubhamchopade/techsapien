@@ -1,7 +1,7 @@
 import { ThemeProvider, createGlobalStyle } from "styled-components"
 import { lightTheme, darkTheme } from "./src/themes/theme"
 import { preToCodeBlock } from "mdx-utils"
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import { DarkContext } from "./src/store/context"
 import "./language-tabs.css"
 import { MDXProvider } from "@mdx-js/react"
@@ -39,16 +39,16 @@ const components = {
   Button,
   Footer,
 }
-useEffect(() => {
-  if (typeof window !== "undefined") {
-    // eslint-disable-next-line global-require
-    require("smooth-scroll")('a[href*="#"]')
-  }
-}, [])
-
 export const RootElement = ({ element }) => {
   const [isDark, setIsDark] = useState("dark")
   const themeMode = isDark === "dark" ? darkTheme : lightTheme
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      // eslint-disable-next-line global-require
+      require("smooth-scroll")('a[href*="#"]')
+    }
+  }, [])
 
   console.log(isDark)
   return (
