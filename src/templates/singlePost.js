@@ -21,8 +21,6 @@ const singlePost = ({ data }) => {
     return new Date(dateString).toLocaleString(undefined, options)
   }
 
-  console.log(data.mdx.tableOfContents)
-
   return (
     <>
       <PostHeader color={data.mdx.frontmatter.category}>

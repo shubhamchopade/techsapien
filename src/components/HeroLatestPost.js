@@ -1,4 +1,4 @@
-import { Link, useStaticQuery } from "gatsby"
+import { graphql, Link, useStaticQuery } from "gatsby"
 import React from "react"
 import { StyledHeading } from "../elements/hero/HeroElements"
 import { PostCard } from "./post-card/PostCard"
