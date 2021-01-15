@@ -98,11 +98,12 @@ export const CoursesContainer = styled.section`
   justify-content: space-around;
   border-radius: 2rem;
   color: ${props => props.theme.colors.textMain};
-  background-color: #b1c2fd;
+  background-color: ${props => (props.color ? props.color : "#DB5776")};
   position: relative;
   overflow: hidden;
-  max-width: 90%;
+  max-width: 40rem;
   height: 20rem;
+  padding: 2rem;
   cursor: pointer;
   margin: 2rem auto;
 
@@ -121,15 +122,23 @@ export const CoursesContainer = styled.section`
 
   div {
     margin: 1rem;
-    p {
+    width: 80%;
+
+    .course-type {
       text-transform: uppercase;
-      font-size: 0.8 rem;
+      font-size: 0.8rem;
       font-weight: bold;
 
       @media (max-width: 768px) {
         font-size: 0.5rem;
       }
     }
+
+    .course-description {
+      margin-top: 2rem;
+      font-size: 0.9rem;
+    }
+
     h1 {
       font-weight: 700;
       font-size: 3rem;
@@ -143,7 +152,7 @@ export const CoursesContainer = styled.section`
   }
 
   img {
-    width: 50%;
+    width: 100%;
     max-width: 30rem;
     margin-left: auto;
     border-top-right-radius: 2rem;

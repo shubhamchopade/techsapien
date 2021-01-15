@@ -17,10 +17,13 @@ const allCourses = ({ data }) => {
     <>
       {data.allMdx.edges.map(edge => (
         <Link to={`/course/${edge.node.frontmatter.slug}`}>
-          <CoursesContainer>
+          <CoursesContainer color={edge.node.frontmatter.color}>
             <div>
-              <p>career</p>
+              <p className="course-type">career</p>
               <h1>{edge.node.frontmatter.title}</h1>
+              <p className="course-description">
+                {edge.node.frontmatter.description}
+              </p>
             </div>
             <StyledImg
               fixed={
@@ -52,6 +55,8 @@ export const PageQuery = graphql`
             slug
             title
             category
+            description
+            color
             featureImage {
               childImageSharp {
                 fixed(fit: CONTAIN, width: 300) {

@@ -45,7 +45,7 @@ const index = () => {
       <BlogSliderContainer>
         <img src={blob2} />
         <div>
-          <StyledHeading>BLOG</StyledHeading>
+          <StyledHeading>BLOGS</StyledHeading>
           <BlogSlider />
         </div>
       </BlogSliderContainer>

@@ -11,27 +11,34 @@ export const PostCard = ({
   title,
   description,
   link,
+  margin,
+  slug,
 }) => {
   return (
-    <PostCardWrapper>
-      <TopText>{title}</TopText>
-      <Pill pill={pill}>{pill}</Pill>
-      <BannerContainer pill={pill}>
-        <StyledImg pill={pill} fixed={image ? image : human} />
-        <Banner>
-          <Title>{title}</Title>
-          <Description>{description}</Description>
-          <StyledLink>Learn more</StyledLink>
-        </Banner>
-      </BannerContainer>
-    </PostCardWrapper>
+    <StyledLink margin={margin} to={`/blog/${slug}`}>
+      <PostCardWrapper margin={margin}>
+        <TopText>{title}</TopText>
+        <Pill pill={pill}>{pill}</Pill>
+        <BannerContainer pill={pill}>
+          <StyledImg pill={pill} fixed={image ? image : human} />
+          <Banner>
+            <Title>{title}</Title>
+            <Description>{description}</Description>
+            <BlogLink>Learn more</BlogLink>
+          </Banner>
+        </BannerContainer>
+      </PostCardWrapper>
+    </StyledLink>
   )
 }
+
+const StyledLink = styled(Link)`
+  margin: ${props => (props.margin ? props.margin : "margin")};
+`
 
 const PostCardWrapper = styled.div`
   height: 300px;
   width: 300px;
-  margin: 2rem auto;
   border-radius: 2rem;
   position: relative;
   overflow: hidden;
@@ -116,7 +123,7 @@ const Description = styled.p`
   width: 100%;
 `
 
-const StyledLink = styled(Link)`
+const BlogLink = styled(Link)`
   background: -webkit-linear-gradient(109.08deg, #2298bd 6.16%, #0ed7b5 91.66%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;

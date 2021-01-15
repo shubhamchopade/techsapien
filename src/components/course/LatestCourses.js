@@ -31,6 +31,8 @@ const LatestCourses = () => {
               excerpt
               slug
               category
+              color
+              description
               featureImage {
                 childImageSharp {
                   fixed(fit: CONTAIN, width: 300) {
@@ -47,23 +49,26 @@ const LatestCourses = () => {
   `)
   return (
     <>
-      <StyledHeading>COURSES</StyledHeading>
+      <StyledHeading margin="5rem 0 0 0">COURSES</StyledHeading>
       {data.allMdx.edges.map(edge => (
-        <Link to={`/course/${edge.node.frontmatter.slug}`}>
-          <CoursesContainer>
+        <CoursesContainer color={edge.node.frontmatter.color}>
+          <Link to={`/course/${edge.node.frontmatter.slug}`}>
             <div>
-              <p>career</p>
+              <p className="course-type">career</p>
               <h1>{edge.node.frontmatter.title}</h1>
+              <p className="course-description">
+                {edge.node.frontmatter.description}
+              </p>
             </div>
-            <StyledImg
-              fixed={
-                edge.node.frontmatter.featureImage
-                  ? edge.node.frontmatter.featureImage.childImageSharp.fixed
-                  : human
-              }
-            />
-          </CoursesContainer>
-        </Link>
+          </Link>
+          <StyledImg
+            fixed={
+              edge.node.frontmatter.featureImage
+                ? edge.node.frontmatter.featureImage.childImageSharp.fixed
+                : human
+            }
+          />
+        </CoursesContainer>
       ))}
     </>
   )
