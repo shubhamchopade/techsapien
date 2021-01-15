@@ -26,7 +26,7 @@ const singlePost = ({ data }) => {
       <PostHeader color={data.mdx.frontmatter.category}>
         <StyledImg fixed={featureImage} />
         <div>
-          <p>{data.mdx.frontmatter.category}</p>
+          <p className="blog-category">{data.mdx.frontmatter.category}</p>
           <h1>{data.mdx.frontmatter.title}</h1>
           <div>
             <p>{formatDate(data.mdx.frontmatter.date)}</p>

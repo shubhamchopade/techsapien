@@ -59,6 +59,7 @@ const LatestCourses = () => {
               <p className="course-description">
                 {edge.node.frontmatter.description}
               </p>
+              <p className="course-link">Start Now</p>
             </div>
           </Link>
           <StyledImg

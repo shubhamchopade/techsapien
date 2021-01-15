@@ -18,10 +18,10 @@ export const lightTheme = {
     bgSecondary: "#243b53",
     navBg: "#1F2933",
     pill: {
-      development: "#bb6bd9",
-      motivation: "#6fcf97",
-      productivity: "#56CCF2",
-      default: "#14c487",
+      development: "#102A43",
+      motivation: "#102A43",
+      productivity: "#102A43",
+      default: "#102A43",
     },
   },
   breakpoints: {

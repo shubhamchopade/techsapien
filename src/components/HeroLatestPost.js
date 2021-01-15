@@ -44,6 +44,7 @@ const HeroLatestPost = () => {
             title={edge.node.frontmatter.title}
             image={edge.node.frontmatter.featureImage.childImageSharp.fixed}
             description={edge.node.frontmatter.excerpt}
+            slug={edge.node.frontmatter.slug}
           />
         </Link>
       ))}

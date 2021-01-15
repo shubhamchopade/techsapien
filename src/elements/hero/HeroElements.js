@@ -24,10 +24,7 @@ export const HeroWrapper = styled.main`
     left: 0;
     user-select: none;
     width: 10%;
-
-    &:hover {
-      filter: sepia(40%);
-    }
+    z-index: -1;
 
     @media (max-width: 1024px) {
       top: 50%;
@@ -77,7 +74,7 @@ export const HeroText = styled.section`
   }
   .bg-blob {
     position: absolute;
-    top: 0;
+    top: -50px;
     right: 0;
     user-select: none;
     z-index: -1;
@@ -105,7 +102,6 @@ export const CoursesContainer = styled.section`
   max-width: 40rem;
   height: 20rem;
   padding: 2rem;
-  cursor: pointer;
   margin: 2rem auto;
 
   @media (max-width: 768px) {
@@ -113,11 +109,12 @@ export const CoursesContainer = styled.section`
   }
 
   &:hover {
-    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
-    transition: cubic-bezier(0.165, 0.84, 0.44, 1) 0.2s;
-
     h1 {
       filter: brightness(20%);
+    }
+
+    .course-link {
+      text-decoration: underline;
     }
   }
 
@@ -138,6 +135,13 @@ export const CoursesContainer = styled.section`
     .course-description {
       margin-top: 2rem;
       font-size: 0.9rem;
+    }
+
+    .course-link {
+      margin-top: 1rem;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      font-weight: bold;
     }
 
     h1 {

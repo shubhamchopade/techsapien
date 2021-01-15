@@ -1,7 +1,7 @@
 import styled from "styled-components"
 
 export const PostHeader = styled.section`
-  background-color: ${props => {
+  background: ${props => {
     switch (props.color) {
       case "development":
         return props.theme.colors.pill.development
@@ -13,16 +13,19 @@ export const PostHeader = styled.section`
         return props.theme.colors.pill.default
     }
   }};
-  height: 75vh;
+  max-height: 40rem;
   min-height: 30rem;
   text-align: center;
   color: ${props => props.theme.colors.textMain};
+  border-radius: 0 0 1rem 1rem;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 
   div {
-    p {
+    .blog-category {
       text-transform: uppercase;
       font-size: 0.8rem;
       font-weight: 600;
+      color: ${props => props.theme.colors.textMain};
     }
 
     h1 {
@@ -42,11 +45,18 @@ export const PostHeader = styled.section`
       }
 
       svg {
-        color: ${props => props.theme.colors.textMain};
         margin: 2rem 0 0 0;
+
         &:hover {
-          filter: brightness(10);
+          filter: invert(50%);
           cursor: pointer;
+        }
+        path {
+          fill: ${props => props.theme.colors.textMain};
+        }
+
+        circle {
+          stroke: ${props => props.theme.colors.textMain};
         }
       }
     }
@@ -55,6 +65,7 @@ export const PostHeader = styled.section`
 
 export const PostWrapper = styled.main`
   max-width: 40rem;
+  width: 90%;
   margin: 0 auto;
   z-index: 10;
   font-family: ${props => props.theme.fonts.blog};
@@ -139,6 +150,8 @@ export const PostWrapper = styled.main`
     text-align: center;
     max-width: 36rem;
     margin: 3rem auto;
+    padding: 2rem;
+    border-left: 10px solid #ccc;
   }
   ul,
   ol {

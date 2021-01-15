@@ -8,7 +8,6 @@ export const NavWrapper = styled.nav`
   width: 100%;
   padding: 1rem 0;
   text-decoration: none;
-  background-color: ${({ theme }) => theme.colors.navBg};
 
   img {
     height: 30px;
@@ -42,16 +41,18 @@ export const Toggle = styled.button`
 `
 
 export const StyledLink = styled(Link)`
-  text-decoration: none;
-  font-size: 0.8rem;
-  color: #fff;
-  padding: 0.4rem;
   display: flex;
   align-items: center;
+  text-decoration: none;
+  font-size: 0.8rem;
+  padding: 0.4rem;
+  font-weight: bold;
   border-radius: 0.3rem;
+  color: ${props => props.theme.colors.textMain};
+  border-bottom: 1px solid transparent;
 
   &:hover {
-    background-color: #173f42;
+    border-bottom: 1px solid #19b2b9;
   }
   &:active {
     filter: brightness(90%);

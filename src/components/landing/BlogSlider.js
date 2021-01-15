@@ -32,7 +32,11 @@ const Slider = styled.section`
 export const BlogSlider = () => {
   const data = useStaticQuery(graphql`
     query {
-      allMdx(limit: 5) {
+      allMdx(
+        limit: 5
+        sort: { fields: frontmatter___date, order: DESC }
+        filter: { frontmatter: { posttype: { eq: "blog" } } }
+      ) {
         edges {
           node {
             frontmatter {
