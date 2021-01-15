@@ -24,6 +24,7 @@ const GlobalStyles = createGlobalStyle`
         background-color: ${props => props.theme.colors.bgMain};
 
         .autolink-header {
+          fill: ${props => props.theme.colors.textMain};
           margin: 0 1rem;
         }
     }

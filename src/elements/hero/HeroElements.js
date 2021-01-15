@@ -96,6 +96,7 @@ export const CoursesContainer = styled.section`
   display: flex;
   align-items: center;
   justify-content: space-around;
+  background-blend-mode: screen;
   border-radius: 2rem;
   color: ${props => props.theme.colors.textMain};
   background-color: ${props => (props.color ? props.color : "#DB5776")};

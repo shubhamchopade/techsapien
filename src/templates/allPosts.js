@@ -34,6 +34,7 @@ const allPosts = ({ pageContext, data }) => {
                   : human
               }
               description={edge.node.frontmatter.excerpt}
+              slug={edge.node.frontmatter.slug}
             />
           </Link>
         ))}

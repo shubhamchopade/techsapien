@@ -160,6 +160,13 @@ export const PostWrapper = styled.main`
     padding: 1rem;
   }
 
+  code {
+    background-color: #d1e9f0;
+    color: #0f272e;
+    padding: 0.3rem;
+    border-radius: 0.2rem;
+  }
+
   hr {
     border: 0;
     height: 1px;
@@ -177,6 +184,9 @@ export const PostWrapper = styled.main`
     font-weight: 400;
   }
   th {
+    width: 100%;
+  }
+  img {
     width: 100%;
   }
 `

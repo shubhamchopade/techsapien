@@ -4,25 +4,15 @@ date: 2021-23-12
 slug: html
 featureImage: 1.png
 posttype: resource
-color: "#aaa"
+color: "#f2c94c"
 ---
 
-```javascript
-const [scroll, setScroll] = useState(0)
+# FUNDAMENTALS
 
-useEffect(() => {
-  let progressBarHandler = () => {
-    const totalScroll = document.documentElement.scrollTop
-    const windowHeight =
-      document.documentElement.scrollHeight -
-      document.documentElement.clientHeight
-    const scroll = `${totalScroll / windowHeight}`
+1. MDN Docs
+2. David Walsch
 
-    setScroll(scroll)
-  }
+# BLOGS
 
-  window.addEventListener("scroll", progressBarHandler)
-
-  return () => window.removeEventListener("scroll", progressBarHandler)
-})
-```
+1. MDN Docs
+2. David Walsch
