@@ -25,10 +25,20 @@ export const LinksContainer = styled.div`
   width: 25rem;
 `
 
-export const Toggle = styled.div`
+export const Toggle = styled.button`
+  outline: none;
+  background-color: transparent;
+  border: none;
   cursor: pointer;
   user-select: none;
   transition: 0.2s all ease;
+  border-radius: 100%;
+  padding: 0.2rem;
+
+  &:focus {
+    background-color: rgba(255, 255, 255, 0.3);
+    transform: scale(0.9);
+  }
 `
 
 export const StyledLink = styled(Link)`
@@ -58,31 +68,31 @@ export const LogoLink = styled(StyledLink)`
   align-items: center;
   padding: 0;
   margin: 0 1.2rem;
-  width: 12rem;
-  min-width: 11rem;
   position: relative;
-  overflow: hidden;
   border-radius: 2rem;
 
   &:hover {
     h1 {
       display: inline-block;
       transform: translateX(30px);
-      transition: cubic-bezier(0.075, 0.82, 0.165, 1) 0.4s;
       opacity: 1;
     }
   }
 
   img {
     width: 1.5rem;
+    position: relative;
+    z-index: 1;
   }
 
   h1 {
     font-size: 1.5rem;
     font-weight: normal;
     position: absolute;
-    transform: translateX(-150px);
+
+    transform: translateX(0px);
     opacity: 0;
+    transition: all cubic-bezier(0.075, 0.82, 0.165, 1) 0.4s;
 
     span {
       font-weight: bold;

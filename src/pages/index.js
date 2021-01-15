@@ -17,12 +17,13 @@ import arrow from "../images/arrow.svg"
 import frontendRoadmap from "../images/frontend-cover.svg"
 import { BlogSlider } from "../components/landing/BlogSlider"
 import { Link } from "gatsby"
+import LatestCourses from "../components/course/LatestCourses"
+import AllResources from "../components/resource/AllResources"
 
 const index = () => {
   return (
     <Landing>
       <HeroWrapper>
-        <img src={dots} />
         <HeroText>
           <h1>
             TECH<span>SAPIEN</span>
@@ -33,21 +34,13 @@ const index = () => {
             tutorials along with the best resources to get started with
             front-end development! Get Started Now
           </p>
-          <img src={blob} />
+          <img className="bg-blob" src={blob} />
         </HeroText>
         <HeroLatestPost />
+        <img className="bg-dots" src={dots} />
       </HeroWrapper>
 
-      <StyledHeading margin="10rem 0 3rem 0">COURSES</StyledHeading>
-      <Link to="/course/frontend-development-roadmap">
-        <CoursesContainer>
-          <div>
-            <p>career</p>
-            <h1>Frontend development roadmap</h1>
-          </div>
-          <img src={frontendRoadmap} />
-        </CoursesContainer>
-      </Link>
+      <LatestCourses />
 
       <BlogSliderContainer>
         <img src={blob2} />
@@ -59,7 +52,8 @@ const index = () => {
 
       <StyledHeading>RESOURCES</StyledHeading>
       <ResourcesContainer>
-        <ResourcePill color="#f2c94c">
+        <AllResources />
+        {/* <ResourcePill color="#f2c94c">
           HTML <img src={arrow} />
         </ResourcePill>
         <ResourcePill color="#6fcf97">
@@ -82,7 +76,7 @@ const index = () => {
         </ResourcePill>
         <ResourcePill color="#27AE60">
           BOOKS <img src={arrow} />
-        </ResourcePill>
+        </ResourcePill> */}
       </ResourcesContainer>
     </Landing>
   )

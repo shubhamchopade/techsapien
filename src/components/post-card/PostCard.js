@@ -31,7 +31,7 @@ export const PostCard = ({
 const PostCardWrapper = styled.div`
   height: 300px;
   width: 300px;
-  margin: 2rem 0;
+  margin: 2rem auto;
   border-radius: 2rem;
   position: relative;
   overflow: hidden;

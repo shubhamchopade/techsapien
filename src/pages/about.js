@@ -2,6 +2,7 @@ import React from "react"
 import styled from "styled-components"
 import shubham from "../images/shubham.png"
 import { useStaticQuery, Link, graphql } from "gatsby"
+import { motion } from "framer-motion"
 
 const About = () => {
   const data = useStaticQuery(graphql`
@@ -23,7 +24,11 @@ const About = () => {
           teaching web development. His ultimate target from this website is to
           help coders evolve.
         </p>
-        <img src={data.image.publicURL} />
+        <motion.img
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          src={data.image.publicURL}
+        />
       </div>
     </AboutContainer>
   )
@@ -52,6 +57,7 @@ const AboutContainer = styled.main`
 
     img {
       width: 20rem;
+      height: 20rem;
       border-radius: 100%;
 
       @media (max-width: 768px) {

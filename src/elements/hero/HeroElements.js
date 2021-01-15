@@ -11,20 +11,30 @@ export const HeroWrapper = styled.main`
   grid-template-columns: 1fr 1fr;
   place-items: center;
   color: ${props => props.theme.colors.textMain};
-  height: 80vh;
-  max-height: 500px;
   position: relative;
   margin: 0 auto;
 
-  @media (max-width: 768px) {
+  @media (max-width: 1024px) {
     grid-template-columns: 1fr;
   }
 
-  img {
+  .bg-dots {
     position: absolute;
     top: 50px;
     left: 0;
     user-select: none;
+    width: 10%;
+
+    &:hover {
+      filter: sepia(40%);
+    }
+
+    @media (max-width: 1024px) {
+      top: 50%;
+    }
+    @media (max-width: 768px) {
+      top: 80%;
+    }
   }
 `
 
@@ -32,10 +42,19 @@ export const HeroText = styled.section`
   max-width: 30rem;
   margin: 0 auto;
 
+  @media (max-width: 1024px) {
+    margin: 2rem;
+  }
+
   h1 {
     font-size: 5rem;
     font-weight: normal;
     line-height: 100%;
+
+    @media (max-width: 768px) {
+      margin-top: 3rem;
+      font-size: 3.3rem;
+    }
 
     span {
       font-weight: bold;
@@ -45,14 +64,18 @@ export const HeroText = styled.section`
     line-height: 100%;
     font-weight: normal;
     font-size: 1.5rem;
+
+    @media (max-width: 768px) {
+      font-size: 1rem;
+    }
   }
 
   p {
     margin: 3rem 0 0 0;
     line-height: 200%;
-    font-size: 1rem;
+    font-size: 0.9rem;
   }
-  img {
+  .bg-blob {
     position: absolute;
     top: 0;
     right: 0;
@@ -72,35 +95,50 @@ export const StyledHeading = styled.h1`
 export const CoursesContainer = styled.section`
   display: flex;
   align-items: center;
+  justify-content: space-around;
   border-radius: 2rem;
-  margin: 0 auto 8rem auto;
   color: ${props => props.theme.colors.textMain};
   background-color: #b1c2fd;
   position: relative;
-  max-width: 80%;
+  overflow: hidden;
+  max-width: 90%;
+  height: 20rem;
   cursor: pointer;
+  margin: 2rem auto;
+
+  @media (max-width: 768px) {
+    max-width: 95%;
+  }
 
   &:hover {
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+    transition: cubic-bezier(0.165, 0.84, 0.44, 1) 0.2s;
+
     h1 {
       filter: brightness(20%);
     }
-
-    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
-    transition: cubic-bezier(0.165, 0.84, 0.44, 1) 0.2s;
   }
 
   div {
-    margin: 0 auto;
+    margin: 1rem;
     p {
       text-transform: uppercase;
       font-size: 0.8 rem;
       font-weight: bold;
+
+      @media (max-width: 768px) {
+        font-size: 0.5rem;
+      }
     }
     h1 {
       font-weight: 700;
       font-size: 3rem;
       line-height: 100%;
       max-width: 15rem;
+
+      @media (max-width: 768px) {
+        font-size: 1.5rem;
+      }
     }
   }
 

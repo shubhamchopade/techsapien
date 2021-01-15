@@ -9,7 +9,7 @@ const allResources = ({ data }) => {
       {data.allMdx.edges.map(edge => (
         <Link to={`/resource/${edge.node.frontmatter.slug}`}>
           <ResourcesContainer>
-            <ResourcePill color="#f2c94c">
+            <ResourcePill color={edge.node.frontmatter.color}>
               <p>{edge.node.frontmatter.title}</p>
               <img src={arrow} />
             </ResourcePill>
@@ -36,6 +36,7 @@ export const PageQuery = graphql`
             slug
             title
             category
+            color
             featureImage {
               childImageSharp {
                 fixed(fit: CONTAIN, width: 300) {

@@ -86,10 +86,6 @@ const singlePost = ({ data }) => {
         </div>
       </PostHeader>
       <Post>
-        {console.log(data.mdx.tableOfContents.items)}
-        {data.mdx.tableOfContents.items && (
-          <TableOfContents post={data.mdx.tableOfContents} />
-        )}
         <MDXRenderer>{data.mdx.body}</MDXRenderer>
       </Post>
     </>
