@@ -71,7 +71,7 @@ const ResourceContainer = styled.section`
     border-radius: 0 0 1rem 1rem;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     text-align: center;
-    color: ${props => props.theme.colors.textMain};
+    color: ${props => props.theme.text.main};
 
     h1 {
       text-align: center;
@@ -97,7 +97,7 @@ export const ResourceStyles = styled.main`
   h4,
   h5,
   h6 {
-    color: ${props => props.theme.colors.dark1};
+    color: ${props => props.theme.text.main};
   }
 
   h1,
@@ -145,12 +145,12 @@ export const ResourceStyles = styled.main`
     font-size: 1.125rem;
     line-height: 1.875rem;
     font-weight: 400;
-    color: ${props => props.theme.colors.dark2};
+    color: ${props => props.theme.text.main};
     margin-top: 2rem;
   }
 
   a {
-    color: ${props => props.theme.colors.main1};
+    color: ${props => props.theme.text.main};
     text-decoration: underline;
   }
   strong {
@@ -174,7 +174,7 @@ export const ResourceStyles = styled.main`
   }
   ul,
   ol {
-    color: ${props => props.theme.colors.dark2};
+    color: ${props => props.theme.text.main};
     margin: 1rem 0 1rem 2rem;
   }
   li {
@@ -187,15 +187,15 @@ export const ResourceStyles = styled.main`
     margin: 1rem 0;
     border-radius: 0.5rem;
     line-height: 1.875rem;
-    color: ${props => props.theme.colors.light1};
-    background-color: ${props => props.theme.colors.dark3};
+    color: ${props => props.theme.text.main};
+    background-color: ${props => props.theme.bg.main};
     padding: 1rem;
   }
 
   hr {
     border: 0;
     height: 1px;
-    background: ${props => props.theme.colors.dark1};
+    background: ${props => props.theme.bg.main};
     opacity: 0.1;
     margin: 2rem;
   }

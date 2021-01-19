@@ -8,6 +8,9 @@ export const NavWrapper = styled.nav`
   width: 100%;
   padding: 1rem 0;
   text-decoration: none;
+  position: sticky;
+  top: 0;
+  z-index: 9999;
 
   img {
     height: 30px;

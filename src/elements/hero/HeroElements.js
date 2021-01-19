@@ -1,9 +1,34 @@
 import styled from "styled-components"
 
 export const Landing = styled.main`
-  max-width: 1440px;
+  max-width: 1600px;
   margin: 0 auto;
   background-color: ${props => props.theme.bg.main};
+  position: relative;
+
+  .bg-blob {
+    position: absolute;
+    top: -50px;
+    right: 0;
+    margin: 0 auto;
+    user-select: none;
+    width: 100%;
+  }
+
+  .bg-dots {
+    position: absolute;
+    top: 50px;
+    left: 0;
+    user-select: none;
+    width: 5rem;
+
+    @media (max-width: 1024px) {
+      top: 50%;
+    }
+    @media (max-width: 768px) {
+      top: 80%;
+    }
+  }
 `
 
 export const HeroWrapper = styled.main`
@@ -16,22 +41,6 @@ export const HeroWrapper = styled.main`
 
   @media (max-width: 1024px) {
     grid-template-columns: 1fr;
-  }
-
-  .bg-dots {
-    position: absolute;
-    top: 50px;
-    left: 0;
-    user-select: none;
-    width: 10%;
-    z-index: -1;
-
-    @media (max-width: 1024px) {
-      top: 50%;
-    }
-    @media (max-width: 768px) {
-      top: 80%;
-    }
   }
 `
 
@@ -71,14 +80,6 @@ export const HeroText = styled.section`
     margin: 3rem 0 0 0;
     line-height: 200%;
     font-size: 0.9rem;
-  }
-  .bg-blob {
-    position: absolute;
-    top: -50px;
-    right: 0;
-    user-select: none;
-    z-index: -1;
-    width: 100%;
   }
 `
 

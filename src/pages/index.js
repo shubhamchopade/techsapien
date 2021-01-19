@@ -23,6 +23,8 @@ import AllResources from "../components/resource/AllResources"
 const index = () => {
   return (
     <Landing>
+      <img className="bg-blob" src={blob} />
+      <img className="bg-dots" src={dots} />
       <HeroWrapper>
         <HeroText>
           <h1>
@@ -34,10 +36,8 @@ const index = () => {
             tutorials along with the best resources to get started with
             front-end development! Get Started Now
           </p>
-          <img className="bg-blob" src={blob} />
         </HeroText>
         <HeroLatestPost />
-        <img className="bg-dots" src={dots} />
       </HeroWrapper>
 
       <LatestCourses />
@@ -53,30 +53,6 @@ const index = () => {
       <StyledHeading>RESOURCES</StyledHeading>
       <ResourcesContainer>
         <AllResources />
-        {/* <ResourcePill color="#f2c94c">
-          HTML <img src={arrow} />
-        </ResourcePill>
-        <ResourcePill color="#6fcf97">
-          CSS <img src={arrow} />
-        </ResourcePill>
-        <ResourcePill color="#bb6bd9">
-          JAVASCRIPT <img src={arrow} />
-        </ResourcePill>
-        <ResourcePill color="#BDBDBD">
-          UI/UX <img src={arrow} />
-        </ResourcePill>
-        <ResourcePill color="#56ccf2">
-          REACT <img src={arrow} />
-        </ResourcePill>
-        <ResourcePill color="#F2994A">
-          FIREBASE <img src={arrow} />
-        </ResourcePill>
-        <ResourcePill color="#EB5757">
-          COLORS <img src={arrow} />
-        </ResourcePill>
-        <ResourcePill color="#27AE60">
-          BOOKS <img src={arrow} />
-        </ResourcePill> */}
       </ResourcesContainer>
     </Landing>
   )
