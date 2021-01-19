@@ -3,14 +3,14 @@ import styled from "styled-components"
 export const Landing = styled.main`
   max-width: 1440px;
   margin: 0 auto;
-  background-color: ${props => props.theme.colors.bgMain};
+  background-color: ${props => props.theme.bg.main};
 `
 
 export const HeroWrapper = styled.main`
   display: grid;
   grid-template-columns: 1fr 1fr;
   place-items: center;
-  color: ${props => props.theme.colors.textMain};
+  color: ${props => props.theme.text.main};
   position: relative;
   margin: 0 auto;
 
@@ -83,7 +83,7 @@ export const HeroText = styled.section`
 `
 
 export const StyledHeading = styled.h1`
-  color: ${props => props.theme.colors.textMain};
+  color: ${props => props.theme.text.main};
   font-size: 25px;
   text-align: center;
   margin: ${props => (props.margin ? props.margin : "30px 0")};
@@ -95,7 +95,7 @@ export const CoursesContainer = styled.section`
   justify-content: space-around;
   background-blend-mode: screen;
   border-radius: 2rem;
-  color: ${props => props.theme.colors.textMain};
+  color: ${props => props.theme.text.main};
   background-color: ${props => (props.color ? props.color : "#DB5776")};
   position: relative;
   overflow: hidden;
@@ -194,7 +194,7 @@ export const ResourcePill = styled.section`
   align-items: center;
   border-radius: 1rem;
   font-weight: 700;
-  color: ${props => props.theme.colors.textMain};
+  color: ${props => props.theme.text.main};
 
   cursor: pointer;
 

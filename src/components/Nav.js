@@ -43,6 +43,9 @@ export const Nav = () => {
       </LinksContainer>
 
       <Toggle onClick={handleToggle}>{isDark === "dark" ? "🌑" : "🌞"}</Toggle>
+      <button onClick={() => setIsDark("light")}>Light</button>
+      <button onClick={() => setIsDark("dark")}>Dark</button>
+      <button onClick={() => setIsDark("warm")}>Warm</button>
     </NavWrapper>
   )
 }

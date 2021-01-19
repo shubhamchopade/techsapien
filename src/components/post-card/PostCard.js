@@ -43,12 +43,11 @@ const PostCardWrapper = styled.div`
   position: relative;
   overflow: hidden;
   margin: 2rem;
-  background-color: ${props => props.theme.colors.bgSecondary};
+  background-color: ${props => props.theme.bg.secondary};
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
   transition: cubic-bezier(0.165, 0.84, 0.44, 1) 0.2s;
 
   &:hover {
-    transform: translateY(-1px);
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   }
 `
@@ -71,13 +70,13 @@ const Pill = styled.span`
   background-color: ${props => {
     switch (props.pill) {
       case "development":
-        return props.theme.colors.pill.development
+        return props.theme.pill.development
       case "motivation":
-        return props.theme.colors.pill.motivation
+        return props.theme.pill.motivation
       case "productivity":
-        return props.theme.colors.pill.productivity
+        return props.theme.pill.productivity
       default:
-        return props.theme.colors.pill.default
+        return props.theme.pill.default
     }
   }};
   color: #fff;
@@ -110,7 +109,7 @@ const Banner = styled.div`
 `
 
 const Title = styled.h2`
-  color: ${props => props.theme.colors.textMain};
+  color: ${props => props.theme.text.main};
   font-size: 1rem;
   font-weight: bold;
   line-height: 1rem;
@@ -118,7 +117,7 @@ const Title = styled.h2`
 `
 
 const Description = styled.p`
-  color: ${props => props.theme.colors.textMain};
+  color: ${props => props.theme.text.main};
   margin: 0.5rem 0;
   font-size: 0.65rem;
   width: 100%;

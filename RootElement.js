@@ -1,5 +1,12 @@
 import { ThemeProvider, createGlobalStyle } from "styled-components"
-import { lightTheme, darkTheme } from "./src/themes/theme"
+import {
+  lightTheme,
+  darkTheme,
+  light,
+  dark,
+  warm,
+  commonStyles,
+} from "./src/themes/theme"
 import { preToCodeBlock } from "mdx-utils"
 import React, { useState, useEffect } from "react"
 import { DarkContext } from "./src/store/context"
@@ -12,6 +19,7 @@ const GlobalStyles = createGlobalStyle`
         box-sizing: border-box;
         margin: 0;
         padding: 0;
+        transition: ${props => props.theme.animations.bg};
     a {
       text-decoration: none;
       color: inherit;
@@ -19,12 +27,12 @@ const GlobalStyles = createGlobalStyle`
     }
     
     body, html{
-        font-family: ${props => props.theme.fonts.main};
         height: 100%;
-        background-color: ${props => props.theme.colors.bgMain};
+        font-family: ${props => props.theme.fonts.main};
+        background-color: ${props => props.theme.bg.main};
 
         .autolink-header {
-          fill: ${props => props.theme.colors.textMain};
+          fill: ${props => props.theme.text.main};
           margin: 0 1rem;
         }
     }
@@ -46,7 +54,13 @@ const components = {
 }
 export const RootElement = ({ element }) => {
   const [isDark, setIsDark] = useState("dark")
-  const themeMode = isDark === "dark" ? darkTheme : lightTheme
+  let themeMode = isDark === "dark" ? darkTheme : lightTheme
+  themeMode =
+    isDark === "dark"
+      ? { ...dark, ...commonStyles }
+      : isDark === "warm"
+      ? { ...warm, ...commonStyles }
+      : { ...light, ...commonStyles }
 
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -55,7 +69,7 @@ export const RootElement = ({ element }) => {
     }
   }, [])
 
-  console.log(isDark)
+  console.log({ ...dark, ...commonStyles })
   return (
     <MDXProvider components={components}>
       <DarkContext.Provider value={[isDark, setIsDark]}>

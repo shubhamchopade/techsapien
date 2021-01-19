@@ -48,7 +48,7 @@ export const StyledLink = styled(Link)`
   padding: 0.4rem;
   font-weight: bold;
   border-radius: 0.3rem;
-  color: ${props => props.theme.colors.textMain};
+  color: ${props => props.theme.text.main};
   border-bottom: 1px solid transparent;
 
   &:hover {

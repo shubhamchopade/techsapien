@@ -39,7 +39,7 @@ export default About
 const AboutContainer = styled.main`
   max-width: 1000px;
   margin: 1rem auto;
-  color: ${props => props.theme.colors.textMain};
+  color: ${props => props.theme.text.main};
 
   .wrapper {
     display: flex;
