@@ -4,22 +4,26 @@ import {
   StyledLink,
   LinksContainer,
   Toggle,
+  ThemeSwitcher,
 } from "../elements"
-import React, { useContext } from "react"
+import React, { useContext, useState } from "react"
 import { useStaticQuery, Link, graphql } from "gatsby"
 import { DarkContext } from "../store/context"
 
 export const Nav = () => {
-  const [isDark, setIsDark] = useContext(DarkContext)
-
-  function handleToggle() {
-    if (isDark === "dark") {
-      setIsDark("light")
-    }
-    if (isDark === "light") {
+  const [isDark, setIsDark, isSans, setIsSans] = useContext(DarkContext)
+  const [count, setCount] = useState(1)
+  const handleTheme = () => {
+    const modes = ["dark", "light", "warm"]
+    if (count < 3) {
+      setCount(prev => prev + 1)
+      setIsDark(modes[count])
+    } else {
+      setCount(1)
       setIsDark("dark")
     }
   }
+
   const data = useStaticQuery(graphql`
     query {
       logo: file(relativePath: { eq: "header.svg" }) {
@@ -42,10 +46,12 @@ export const Nav = () => {
         <StyledLink to="/resource">Resources</StyledLink>
       </LinksContainer>
 
-      <Toggle onClick={handleToggle}>{isDark === "dark" ? "🌑" : "🌞"}</Toggle>
-      <button onClick={() => setIsDark("light")}>Light</button>
-      <button onClick={() => setIsDark("dark")}>Dark</button>
-      <button onClick={() => setIsDark("warm")}>Warm</button>
+      <div className="theme-elements">
+        <Toggle isSans={isSans} onClick={() => setIsSans(prev => !prev)}>
+          {!isSans ? "Sans" : "Serif"}
+        </Toggle>
+        <ThemeSwitcher isDark={isDark} onClick={handleTheme}></ThemeSwitcher>
+      </div>
     </NavWrapper>
   )
 }

@@ -56,6 +56,7 @@ export const HeroText = styled.section`
     font-size: 5rem;
     font-weight: normal;
     line-height: 100%;
+    font-family: ${props => props.theme.fontFamily.heading};
 
     @media (max-width: 768px) {
       margin-top: 3rem;
@@ -70,6 +71,7 @@ export const HeroText = styled.section`
     line-height: 100%;
     font-weight: normal;
     font-size: 1.5rem;
+    font-family: ${props => props.theme.fontFamily.heading};
 
     @media (max-width: 768px) {
       font-size: 1rem;
@@ -80,6 +82,7 @@ export const HeroText = styled.section`
     margin: 3rem 0 0 0;
     line-height: 200%;
     font-size: 0.9rem;
+    font-family: ${props => props.theme.fontFamily.paragraph};
   }
 `
 

@@ -1,12 +1,5 @@
 import { ThemeProvider, createGlobalStyle } from "styled-components"
-import {
-  lightTheme,
-  darkTheme,
-  light,
-  dark,
-  warm,
-  commonStyles,
-} from "./src/themes/theme"
+import { light, dark, warm, commonStyles, font } from "./src/themes/theme"
 import { preToCodeBlock } from "mdx-utils"
 import React, { useState, useEffect } from "react"
 import { DarkContext } from "./src/store/context"
@@ -19,7 +12,7 @@ const GlobalStyles = createGlobalStyle`
         box-sizing: border-box;
         margin: 0;
         padding: 0;
-        transition: ${props => props.theme.animations.bg};
+        transition: ${props => props.theme.animations.theme};
     a {
       text-decoration: none;
       color: inherit;
@@ -54,13 +47,16 @@ const components = {
 }
 export const RootElement = ({ element }) => {
   const [isDark, setIsDark] = useState("dark")
-  let themeMode = isDark === "dark" ? darkTheme : lightTheme
+  const [isSans, setIsSans] = useState(true)
+  let themeMode = ""
   themeMode =
     isDark === "dark"
       ? { ...dark, ...commonStyles }
       : isDark === "warm"
       ? { ...warm, ...commonStyles }
       : { ...light, ...commonStyles }
+
+  let fontFamily = isSans ? font.sans : font.serif
 
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -69,11 +65,10 @@ export const RootElement = ({ element }) => {
     }
   }, [])
 
-  console.log({ ...dark, ...commonStyles })
   return (
     <MDXProvider components={components}>
-      <DarkContext.Provider value={[isDark, setIsDark]}>
-        <ThemeProvider theme={themeMode}>
+      <DarkContext.Provider value={[isDark, setIsDark, isSans, setIsSans]}>
+        <ThemeProvider theme={{ ...themeMode, fontFamily }}>
           <GlobalStyles />
           <Nav />
           {element}

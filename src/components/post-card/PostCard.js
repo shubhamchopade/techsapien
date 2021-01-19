@@ -79,7 +79,7 @@ const Pill = styled.span`
         return props.theme.pill.default
     }
   }};
-  color: #fff;
+  color: ${props => props.theme.text.neutral};
   font-weight: 600;
   text-transform: uppercase;
   border-radius: 3rem;

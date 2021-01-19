@@ -19,6 +19,7 @@ export const PostHeader = styled.section`
   color: ${props => props.theme.text.main};
   border-radius: 0 0 1rem 1rem;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  font-family: ${props => props.theme.fontFamily.heading};
 
   div {
     .blog-category {
@@ -68,7 +69,6 @@ export const PostWrapper = styled.main`
   width: 90%;
   margin: 0 auto;
   z-index: 10;
-  font-family: ${props => props.theme.fonts.blog};
 
   h1,
   h2,
@@ -77,6 +77,7 @@ export const PostWrapper = styled.main`
   h5,
   h6 {
     color: ${props => props.theme.text.main};
+    font-family: ${props => props.theme.fontFamily.heading};
   }
 
   h1,
@@ -126,6 +127,7 @@ export const PostWrapper = styled.main`
     font-weight: 400;
     color: ${props => props.theme.text.main};
     margin-top: 2rem;
+    font-family: ${props => props.theme.fontFamily.paragraph};
   }
 
   a {

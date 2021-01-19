@@ -6,18 +6,25 @@ export const NavWrapper = styled.nav`
   justify-content: space-around;
   align-items: center;
   width: 100%;
-  padding: 1rem 0;
+  padding: 1rem;
   text-decoration: none;
   position: sticky;
   top: 0;
   z-index: 9999;
+  background-color: ${props => props.theme.bg.secondary};
+
+  @media ${props => props.theme.breakpoints.tablet} {
+    grid-column: 2 / span 6;
+  }
 
   img {
     height: 30px;
   }
 
-  @media ${props => props.theme.breakpoints.tablet} {
-    grid-column: 2 / span 6;
+  .theme-elements {
+    display: flex;
+    justify-items: space-around;
+    align-items: center;
   }
 `
 
@@ -27,20 +34,17 @@ export const LinksContainer = styled.div`
   width: 25rem;
 `
 
-export const Toggle = styled.button`
+export const Toggle = styled.span`
   outline: none;
   background-color: transparent;
   border: none;
   cursor: pointer;
   user-select: none;
-  transition: 0.2s all ease;
-  border-radius: 100%;
-  padding: 0.2rem;
-
-  &:focus {
-    background-color: rgba(255, 255, 255, 0.3);
-    transform: scale(0.9);
-  }
+  padding: 0.2rem 0.5rem;
+  font-family: ${props => (!props.isSans ? "Poppins" : "Times New Roman")};
+  color: ${props => props.theme.text.secondary};
+  font-size: 1rem;
+  text-decoration: underline;
 `
 
 export const StyledLink = styled(Link)`
@@ -102,4 +106,23 @@ export const LogoLink = styled(StyledLink)`
       font-weight: bold;
     }
   }
+`
+export const ThemeSwitcher = styled.div`
+  width: 30px;
+  height: 30px;
+  background-color: ${props => {
+    switch (props.isDark) {
+      case "light":
+        return "#27241D"
+      case "dark":
+        return "#FFFFFF"
+      case "warm":
+        return "#102A43"
+      default:
+        return "#aaa"
+    }
+  }};
+  border: 2px solid #10d1b6;
+  border-radius: 100%;
+  outline: #fff;
 `
