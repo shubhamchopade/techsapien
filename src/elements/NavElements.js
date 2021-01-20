@@ -17,7 +17,7 @@ export const StyledBurger = styled.div`
   div {
     width: 2rem;
     height: 0.25rem;
-    background-color: ${({ open }) => (open ? "#333" : "#ccc")};
+    background-color: ${({ theme }) => theme.text.main};
     border-radius: 10px;
     transform-origin: 32%;
     transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -35,7 +35,7 @@ export const StyledBurger = styled.div`
 export const Ul = styled.ul`
   list-style: none;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   flex-flow: row nowrap;
   overflow: hidden;
 
@@ -61,6 +61,8 @@ export const NavWrapper = styled.nav`
   grid-template-columns: 1fr 1fr 1fr;
   place-items: center;
   width: 100%;
+  max-width: 1600px;
+  margin: 0 auto;
   padding: 1rem;
   text-decoration: none;
   position: sticky;
@@ -68,9 +70,16 @@ export const NavWrapper = styled.nav`
   z-index: 9999;
   background-color: ${props => props.theme.bg.secondary};
 
+  @media ${props => props.theme.breakpoints.tablet} {
+    margin-bottom: 1rem;
+    height: 1rem;
+  }
+
   .theme-elements {
     display: flex;
-    justify-content: space-around;
+    position: absolute;
+    top: 12px;
+    right: 15px;
   }
 `
 
@@ -83,11 +92,18 @@ export const StyledLink = styled(Link)`
   font-size: 0.8rem;
   padding: 0.2rem;
   font-weight: bold;
-  border-radius: 0.3rem;
   color: ${props => props.theme.text.main};
+  font-family: ${props => props.theme.fontFamily.heading};
+
+  &:nth-child(2) {
+    padding: 0 0.7rem;
+  }
+  &:last-child {
+    padding-left: 0.7rem;
+  }
 
   &:hover {
-    border-bottom: 1px solid #19b2b9;
+    text-decoration: underline;
   }
   &:active {
     filter: brightness(90%);
@@ -95,8 +111,14 @@ export const StyledLink = styled(Link)`
 
   @media ${props => props.theme.breakpoints.tablet} {
     font-size: 3rem;
-    padding: 1rem;
     margin: 0 auto;
+
+    &:first-child {
+      padding-top: 3rem;
+    }
+    &:last-child {
+      padding-bottom: 3rem;
+    }
   }
 `
 
@@ -110,6 +132,8 @@ export const LogoLink = styled(Link)`
     left: 0;
     transform: translate(-50%, -50%);
     z-index: 1;
+    border-radius: 50%;
+    box-shadow: 1px 5px 8px 0px ${props => props.theme.shadows.shadow1};
   }
 `
 export const ThemeSwitcher = styled.div`
@@ -128,9 +152,10 @@ export const ThemeSwitcher = styled.div`
         return "#aaa"
     }
   }};
-  border: 2px solid #10d1b6;
+  border: 8px solid ${props => props.theme.text.neutral};
   border-radius: 100%;
   outline: #fff;
+  margin-right: 0.5rem;
 `
 
 export const FontSwitcher = styled(ThemeSwitcher)`

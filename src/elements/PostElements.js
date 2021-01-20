@@ -1,36 +1,48 @@
 import styled from "styled-components"
 
 export const PostHeader = styled.section`
-  background: ${props => {
-    switch (props.color) {
-      case "development":
-        return props.theme.pill.development
-      case "motivation":
-        return props.theme.pill.motivation
-      case "productivity":
-        return props.theme.pill.productivity
-      default:
-        return props.theme.pill.default
-    }
-  }};
+  max-width: 1600px;
+  margin: 0 auto;
+  padding-bottom: 2rem;
+  background: ${props => props.theme.bg.main};
   max-height: 40rem;
   min-height: 30rem;
   text-align: center;
+  position: relative;
+  overflow: hidden;
   color: ${props => props.theme.text.main};
   border-radius: 0 0 1rem 1rem;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 
   div {
+    position: relative;
+    z-index: 2;
+    background-color: transparent;
     .blog-category {
       text-transform: uppercase;
       font-size: 0.8rem;
       font-weight: 600;
-      color: ${props => props.theme.text.main};
+      color: ${props => {
+        switch (props.color) {
+          case "development":
+            return props.theme.pill.development
+          case "motivation":
+            return props.theme.pill.motivation
+          case "productivity":
+            return props.theme.pill.productivity
+          default:
+            return props.theme.pill.default
+        }
+      }};
     }
 
     h1 {
       font-size: 3rem;
       font-family: ${props => props.theme.fontFamily.heading};
+
+      @media ${props => props.theme.breakpoints.mobile} {
+        font-size: 2rem;
+      }
     }
 
     div {

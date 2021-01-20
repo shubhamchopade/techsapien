@@ -19,12 +19,18 @@ import { BlogSlider } from "../components/landing/BlogSlider"
 import { Link } from "gatsby"
 import LatestCourses from "../components/course/LatestCourses"
 import AllResources from "../components/resource/AllResources"
+import {
+  SVGBackgroundColor,
+  SVGBackgroundFont,
+} from "../components/landing/SVGBackground"
 
 const index = () => {
   return (
     <Landing>
       <img className="bg-blob" src={blob} />
       <img className="bg-dots" src={dots} />
+      <SVGBackgroundColor />
+      <SVGBackgroundFont />
       <HeroWrapper>
         <HeroText>
           <h1>

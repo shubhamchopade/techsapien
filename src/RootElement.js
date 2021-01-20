@@ -47,7 +47,7 @@ const components = {
 }
 export const RootElement = ({ element }) => {
   const [isDark, setIsDark] = useState("dark")
-  const [isSans, setIsSans] = useState("")
+  const [isSans, setIsSans] = useState("sans")
   let themeMode = ""
   themeMode =
     isDark === "dark"

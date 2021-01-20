@@ -12,6 +12,11 @@ import {
   TwitterShareButton,
   LinkedinShareButton,
 } from "react-share"
+import {
+  SVGBackgroundBlob,
+  SVGBackgroundColor,
+  SVGBackgroundFont,
+} from "../components/landing/SVGBackground"
 
 const singlePost = ({ data }) => {
   const featureImage = data.mdx.frontmatter.featureImage.childImageSharp.fixed
@@ -24,6 +29,9 @@ const singlePost = ({ data }) => {
   return (
     <>
       <PostHeader color={data.mdx.frontmatter.category}>
+        <SVGBackgroundColor />
+        <SVGBackgroundFont />
+        <SVGBackgroundBlob />
         <StyledImg fixed={featureImage} />
         <div>
           <p className="blog-category">{data.mdx.frontmatter.category}</p>
@@ -82,7 +90,6 @@ const singlePost = ({ data }) => {
               </svg>
             </TwitterShareButton>
           </div>
-          <div></div>
         </div>
       </PostHeader>
       <Post>

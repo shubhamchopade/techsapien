@@ -80,6 +80,7 @@ module.exports = {
           `roboto\:400,400i,500,700,700i,900`,
           `merriweather\:400,700,900`,
           `oswald\:400,500,600,700`,
+          `handlee\:400`,
         ],
         display: "swap",
       },

@@ -47,10 +47,7 @@ export const HeroWrapper = styled.main`
 export const HeroText = styled.section`
   max-width: 30rem;
   margin: 0 auto;
-
-  @media (max-width: 1024px) {
-    margin: 2rem;
-  }
+  padding: 0 1rem;
 
   h1 {
     font-size: 5rem;
@@ -58,9 +55,13 @@ export const HeroText = styled.section`
     line-height: 100%;
     font-family: ${props => props.theme.fontFamily.heading};
 
-    @media (max-width: 768px) {
+    @media ${props => props.theme.breakpoints.tablet} {
       margin-top: 3rem;
       font-size: 3.3rem;
+    }
+    @media ${props => props.theme.breakpoints.mobile} {
+      margin-top: 7rem;
+      font-size: 2.5rem;
     }
 
     span {
@@ -70,11 +71,14 @@ export const HeroText = styled.section`
   h2 {
     line-height: 100%;
     font-weight: normal;
-    font-size: 1.5rem;
-    font-family: ${props => props.theme.fontFamily.heading};
+    font-size: 1.3rem;
+    font-family: ${props => props.theme.fontFamily.paragraph};
 
-    @media (max-width: 768px) {
+    @media ${props => props.theme.breakpoints.tablet} {
       font-size: 1rem;
+    }
+    @media ${props => props.theme.breakpoints.mobile} {
+      font-size: 0.8rem;
     }
   }
 
@@ -83,6 +87,10 @@ export const HeroText = styled.section`
     line-height: 200%;
     font-size: 0.9rem;
     font-family: ${props => props.theme.fontFamily.paragraph};
+
+    @media ${props => props.theme.breakpoints.tablet} {
+      width: 90%;
+    }
   }
 `
 

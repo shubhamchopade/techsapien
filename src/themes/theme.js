@@ -9,6 +9,7 @@ export const light = {
     secondary: "#243B53",
     neutral: "#829AB1",
   },
+  shadow: "rgba(16, 42, 67, 0.5)",
 }
 
 export const dark = {
@@ -22,6 +23,7 @@ export const dark = {
     secondary: "#D9E2EC",
     neutral: "#627D98",
   },
+  shadow: "rgba(240, 244, 248, 0.2)",
 }
 
 export const warm = {
@@ -35,6 +37,7 @@ export const warm = {
     secondary: "#E8E6E1",
     neutral: "#A39E93",
   },
+  shadow: "rgba(250, 249, 247, 0.2)",
 }
 
 export const commonStyles = {
@@ -60,12 +63,13 @@ export const commonStyles = {
     shadow1: "0px 5px 20px rgba(30,30,31,0.05)",
   },
   pill: {
-    development: "#B9EE9D",
-    motivation: "#C595F8",
-    productivity: "#1FDCCC",
+    development: "#BB6BD9",
+    motivation: "#6FCF97",
+    productivity: "#56CCF2",
     default: "#102A43",
   },
   fonts: {
+    handwriting: "Handlee",
     main: "Poppins, sans-serif",
     code: "Roboto Mono, monospace",
     blog: "Inter",
