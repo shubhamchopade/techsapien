@@ -19,7 +19,6 @@ export const PostHeader = styled.section`
   color: ${props => props.theme.text.main};
   border-radius: 0 0 1rem 1rem;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  font-family: ${props => props.theme.fontFamily.heading};
 
   div {
     .blog-category {
@@ -31,6 +30,7 @@ export const PostHeader = styled.section`
 
     h1 {
       font-size: 3rem;
+      font-family: ${props => props.theme.fontFamily.heading};
     }
 
     div {

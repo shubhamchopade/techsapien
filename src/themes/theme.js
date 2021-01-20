@@ -83,10 +83,14 @@ export const commonStyles = {
 export const font = {
   sans: {
     heading: "Poppins, Sans Serif",
-    paragraph: "Inter, Roboto Condensed",
+    paragraph: "Inter",
   },
   serif: {
-    heading: "Taviraj, Serif",
-    paragraph: "Roboto Slab",
+    heading: "Merriweather",
+    paragraph: "Poppins",
+  },
+  slab: {
+    heading: "Roboto Slab, Serif",
+    paragraph: "Roboto",
   },
 }

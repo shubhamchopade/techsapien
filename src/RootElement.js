@@ -1,11 +1,11 @@
 import { ThemeProvider, createGlobalStyle } from "styled-components"
-import { light, dark, warm, commonStyles, font } from "./src/themes/theme"
+import { light, dark, warm, commonStyles, font } from "./themes/theme"
 import { preToCodeBlock } from "mdx-utils"
 import React, { useState, useEffect } from "react"
-import { DarkContext } from "./src/store/context"
+import { DarkContext } from "./store/context"
 import "./language-tabs.css"
 import { MDXProvider } from "@mdx-js/react"
-import { Button, Code, Footer, Nav } from "./src/components"
+import { Button, Code, Footer, Nav } from "./components"
 
 const GlobalStyles = createGlobalStyle`
     *{
@@ -47,7 +47,7 @@ const components = {
 }
 export const RootElement = ({ element }) => {
   const [isDark, setIsDark] = useState("dark")
-  const [isSans, setIsSans] = useState(true)
+  const [isSans, setIsSans] = useState("")
   let themeMode = ""
   themeMode =
     isDark === "dark"
@@ -56,7 +56,8 @@ export const RootElement = ({ element }) => {
       ? { ...warm, ...commonStyles }
       : { ...light, ...commonStyles }
 
-  let fontFamily = isSans ? font.sans : font.serif
+  let fontFamily =
+    isSans === "sans" ? font.sans : isSans === "serif" ? font.serif : font.slab
 
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -64,6 +65,8 @@ export const RootElement = ({ element }) => {
       require("smooth-scroll")('a[href*="#"]')
     }
   }, [])
+
+  console.log(isSans)
 
   return (
     <MDXProvider components={components}>
