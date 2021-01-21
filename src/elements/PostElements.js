@@ -1,3 +1,4 @@
+import { Link } from "gatsby"
 import styled from "styled-components"
 
 export const PostHeader = styled.section`
@@ -215,5 +216,44 @@ export const PostWrapper = styled.main`
   }
   img {
     width: 100%;
+  }
+`
+
+export const PostNavContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  color: ${props => props.theme.text.main};
+  max-width: 1000px;
+  margin: 2rem auto;
+`
+
+export const PostNavLink = styled(Link)`
+  margin: 1rem;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  border-radius: 0.3rem;
+  border: 2px solid;
+  border-color: ${props => {
+    switch (props.color) {
+      case "development":
+        return props.theme.pill.development
+      case "motivation":
+        return props.theme.pill.motivation
+      case "productivity":
+        return props.theme.pill.productivity
+      default:
+        return props.theme.pill.default
+    }
+  }};
+
+  p {
+    transition: 1s;
+  }
+
+  &:hover {
+    p {
+      transform: translateX(-5px);
+    }
   }
 `

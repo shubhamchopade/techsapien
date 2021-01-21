@@ -17,12 +17,13 @@ const allPosts = ({ pageContext, data }) => {
   const isLast = currentPage === numPage
   const prevPage = currentPage - 1 === 1 ? "/blog/" : `/blog/${currentPage - 1}`
   const nextPage = `/blog/${currentPage + 1}`
-  const posts = data.allMdx.edges
+
+  console.log(data.blogs.edges)
 
   return (
     <>
       <Container>
-        {data.allMdx.edges.map(edge => (
+        {data.blogs.edges.map(edge => (
           <Link to={`/blog/${edge.node.frontmatter.slug}`}>
             <PostCard
               topText={edge.node.frontmatter.title}
@@ -54,7 +55,7 @@ export default allPosts
 
 export const PageQuery = graphql`
   query AllPostsQuery($skip: Int!, $limit: Int!) {
-    allMdx(
+    blogs: allMdx(
       limit: $limit
       skip: $skip
       sort: { fields: frontmatter___date, order: DESC }

@@ -1,7 +1,7 @@
 import React from "react"
-import { graphql } from "gatsby"
+import { graphql, Link, useStaticQuery } from "gatsby"
 import { MDXRenderer } from "gatsby-plugin-mdx"
-import { H1, P, PostHeader } from "../elements"
+import { H1, P, PostHeader, PostNavLink, PostNavContainer } from "../elements"
 import { Container, Post, FeatureImage } from "../components"
 import Img from "gatsby-image"
 import styled from "styled-components"
@@ -18,13 +18,27 @@ import {
   SVGBackgroundFont,
 } from "../components/landing/SVGBackground"
 
-const singlePost = ({ data }) => {
+const singlePost = ({ pageContext, data }) => {
   const featureImage = data.mdx.frontmatter.featureImage.childImageSharp.fixed
+  const posts = data.allMdx.edges
 
   const formatDate = dateString => {
     const options = { year: "numeric", month: "long", day: "numeric" }
     return new Date(dateString).toLocaleString(undefined, options)
   }
+
+  const { previous, next } = pageContext
+
+  let prevImage,
+    nextImage = null
+
+  posts.forEach(post => {
+    if (previous && post.node.id === previous.node.id)
+      prevImage = post.node.frontmatter.featureImage.childImageSharp.fixed
+    if (next && post.node.id === next.node.id)
+      nextImage = post.node.frontmatter.featureImage.childImageSharp.fixed
+  })
+  console.log(prevImage, nextImage)
 
   return (
     <>
@@ -95,6 +109,27 @@ const singlePost = ({ data }) => {
       <Post>
         <MDXRenderer>{data.mdx.body}</MDXRenderer>
       </Post>
+      <PostNavContainer>
+        {previous && (
+          <PostNavLink
+            color={previous.node.frontmatter.category}
+            to={`/blog/${previous.node.frontmatter.slug}`}
+            rel="prev"
+          >
+            <Img fixed={prevImage} />
+            <p>←</p> {previous.node.frontmatter.title}
+          </PostNavLink>
+        )}
+        {next && (
+          <PostNavLink
+            color={next.node.frontmatter.category}
+            to={`/blog/${next.node.frontmatter.slug}`}
+            rel="next"
+          >
+            {next.node.frontmatter.title} →<Img fixed={nextImage} />
+          </PostNavLink>
+        )}
+      </PostNavContainer>
     </>
   )
 }
@@ -111,6 +146,7 @@ export const PageQuery = graphql`
         slug
         title
         category
+        posttype
         featureImage {
           childImageSharp {
             fixed(width: 200) {
@@ -120,6 +156,30 @@ export const PageQuery = graphql`
         }
       }
       timeToRead
+    }
+    allMdx(
+      sort: { fields: frontmatter___date, order: DESC }
+      filter: { frontmatter: { posttype: { eq: "blog" } } }
+    ) {
+      edges {
+        node {
+          id
+          frontmatter {
+            date
+            excerpt
+            slug
+            title
+            category
+            featureImage {
+              childImageSharp {
+                fixed(fit: CONTAIN, width: 50) {
+                  ...GatsbyImageSharpFixed
+                }
+              }
+            }
+          }
+        }
+      }
     }
   }
 `
