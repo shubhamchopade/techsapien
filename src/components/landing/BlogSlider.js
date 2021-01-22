@@ -9,6 +9,7 @@ const Slider = styled.section`
   display: flex;
   margin: 0 auto;
   overflow-x: scroll;
+  position: relative;
 
   ::-webkit-scrollbar {
     height: 5px;
@@ -72,7 +73,7 @@ export const BlogSlider = () => {
               : human
           }
           description={edge.node.frontmatter.excerpt}
-          margin="1rem 3rem"
+          margin=""
           slug={edge.node.frontmatter.slug}
         />
       ))}

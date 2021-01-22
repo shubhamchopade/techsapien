@@ -51,7 +51,7 @@ const LatestCourses = () => {
     <>
       <StyledHeading margin="5rem 0 0 0">COURSES</StyledHeading>
       {data.allMdx.edges.map(edge => (
-        <CoursesContainer color={edge.node.frontmatter.color}>
+        <CoursesContainer>
           <Link to={`/course/${edge.node.frontmatter.slug}`}>
             <div>
               <p className="course-type">career</p>

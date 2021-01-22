@@ -112,21 +112,50 @@ const singlePost = ({ pageContext, data }) => {
       <PostNavContainer>
         {previous && (
           <PostNavLink
+            next={next}
             color={previous.node.frontmatter.category}
             to={`/blog/${previous.node.frontmatter.slug}`}
             rel="prev"
           >
+            <svg
+              className="arrow left"
+              width="56"
+              height="50"
+              viewBox="0 0 56 50"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M22.0569 50L0 25.058L22.0569 0H56L33.9431 25.058L56 50H22.0569Z"
+                fill="#504A40"
+              />
+            </svg>
             <Img fixed={prevImage} />
-            <p>←</p> {previous.node.frontmatter.title}
+            {previous.node.frontmatter.title}
           </PostNavLink>
         )}
         {next && (
           <PostNavLink
+            prev={previous}
             color={next.node.frontmatter.category}
             to={`/blog/${next.node.frontmatter.slug}`}
             rel="next"
           >
-            {next.node.frontmatter.title} →<Img fixed={nextImage} />
+            {next.node.frontmatter.title}
+            <Img fixed={nextImage} />
+            <svg
+              className="arrow right"
+              width="56"
+              height="50"
+              viewBox="0 0 56 50"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M33.9431 50L56 25.058L33.9431 0H-1.7114e-06L22.0569 25.058L-1.7114e-06 50H33.9431Z"
+                fill="#504A40"
+              />
+            </svg>
           </PostNavLink>
         )}
       </PostNavContainer>
@@ -172,7 +201,7 @@ export const PageQuery = graphql`
             category
             featureImage {
               childImageSharp {
-                fixed(fit: CONTAIN, width: 50) {
+                fixed(fit: CONTAIN, width: 70) {
                   ...GatsbyImageSharpFixed
                 }
               }

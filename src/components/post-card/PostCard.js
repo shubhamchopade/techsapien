@@ -24,7 +24,35 @@ export const PostCard = ({
           <Banner>
             <Title>{title}</Title>
             <Description>{description}</Description>
-            <BlogLink>Learn more</BlogLink>
+            <BlogLink>
+              Learn more{" "}
+              <svg
+                className="arrow"
+                width="30"
+                height="8"
+                viewBox="0 0 30 8"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M29.3535 4.35355C29.5488 4.15829 29.5488 3.84171 29.3535 3.64645L26.1715 0.464466C25.9763 0.269204 25.6597 0.269204 25.4644 0.464466C25.2692 0.659728 25.2692 0.976311 25.4644 1.17157L28.2929 4L25.4644 6.82843C25.2692 7.02369 25.2692 7.34027 25.4644 7.53553C25.6597 7.7308 25.9763 7.7308 26.1715 7.53553L29.3535 4.35355ZM-3.05176e-05 4.5H29V3.5H-3.05176e-05V4.5Z"
+                  fill="url(#paint0_linear)"
+                />
+                <defs>
+                  <linearGradient
+                    id="paint0_linear"
+                    x1="-0.805651"
+                    y1="4.32"
+                    x2="-0.477346"
+                    y2="7.61373"
+                    gradientUnits="userSpaceOnUse"
+                  >
+                    <stop stop-color="#2298BD" />
+                    <stop offset="1" stop-color="#0ED7B5" />
+                  </linearGradient>
+                </defs>
+              </svg>
+            </BlogLink>
           </Banner>
         </BannerContainer>
       </PostCardWrapper>
@@ -49,6 +77,10 @@ const PostCardWrapper = styled.div`
 
   &:hover {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+    .arrow {
+      transform: translateX(5px);
+    }
   }
 `
 const TopText = styled.h1`
@@ -128,5 +160,13 @@ const BlogLink = styled(Link)`
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   font-weight: 600;
-  font-size: 0.6rem;
+  font-size: 0.7rem;
+  display: flex;
+  align-items: center;
+
+  .arrow {
+    width: 1.5rem;
+    margin-left: 0.3rem;
+    transition: 0.3s;
+  }
 `

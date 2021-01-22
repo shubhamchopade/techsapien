@@ -222,13 +222,19 @@ export const PostWrapper = styled.main`
 export const PostNavContainer = styled.div`
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
   color: ${props => props.theme.text.main};
   max-width: 1000px;
   margin: 2rem auto;
 `
 
 export const PostNavLink = styled(Link)`
-  margin: 1rem;
+  margin: ${props =>
+    !props.prev
+      ? "1rem auto 1rem 1rem"
+      : !props.next
+      ? "1rem 1rem 1rem auto"
+      : "1rem auto"};
   padding: 1rem;
   display: flex;
   align-items: center;
@@ -247,13 +253,25 @@ export const PostNavLink = styled(Link)`
     }
   }};
 
-  p {
+  .arrow {
     transition: 1s;
+
+    path {
+      fill: ${props => props.theme.text.neutral};
+    }
   }
 
   &:hover {
-    p {
+    .arrow {
+      path {
+        fill: ${props => props.theme.text.secondary};
+      }
+    }
+    .left {
       transform: translateX(-5px);
+    }
+    .right {
+      transform: translateX(5px);
     }
   }
 `

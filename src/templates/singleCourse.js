@@ -1,10 +1,11 @@
 import React from "react"
-import { graphql } from "gatsby"
+import { graphql, Link } from "gatsby"
 import { MDXRenderer } from "gatsby-plugin-mdx"
 import { H1, P, PostHeader } from "../elements"
 import { Container, Post, FeatureImage } from "../components"
 import Img from "gatsby-image"
 import styled from "styled-components"
+import { CourseWrapper } from "../components/course/Elements"
 
 const singleCourse = ({ data }) => {
   const featureImage = data.mdx.frontmatter.featureImage.childImageSharp.fixed
@@ -14,18 +15,21 @@ const singleCourse = ({ data }) => {
   }
 
   return (
-    <Container>
-      <StyledImg fixed={featureImage} />
-      <div>
-        <h1>{data.mdx.frontmatter.title}</h1>
+    <CourseWrapper>
+      <div className="container">
+        <StyledImg fixed={featureImage} />
         <div>
-          <p>{formatDate(data.mdx.frontmatter.date)}</p>
-          <p>{data.mdx.timeToRead} min read</p>
+          <h1>{data.mdx.frontmatter.title}</h1>
+          <p>Course coming soon...😎</p>
+          <p>
+            Meanwhile check out{" "}
+            <Link className="link" to="resource">
+              resources
+            </Link>{" "}
+          </p>
         </div>
-        <div></div>
       </div>
-      <MDXRenderer>{data.mdx.body}</MDXRenderer>
-    </Container>
+    </CourseWrapper>
   )
 }
 

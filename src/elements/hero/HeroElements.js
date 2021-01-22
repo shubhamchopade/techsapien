@@ -88,6 +88,33 @@ export const HeroText = styled.section`
     font-size: 0.9rem;
     font-family: ${props => props.theme.fontFamily.paragraph};
 
+    .get-started {
+      background: -webkit-linear-gradient(
+        109.08deg,
+        #2298bd 6.16%,
+        #0ed7b5 91.66%
+      );
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      font-weight: 700;
+
+      &:hover {
+        .arrow {
+          transform: translateX(10px);
+        }
+      }
+    }
+
+    .arrow {
+      margin-left: 0.3rem;
+      width: 2rem;
+      transition: 0.3s;
+    }
+
     @media ${props => props.theme.breakpoints.tablet} {
       width: 90%;
     }
@@ -108,7 +135,7 @@ export const CoursesContainer = styled.section`
   background-blend-mode: screen;
   border-radius: 2rem;
   color: ${props => props.theme.text.main};
-  background-color: ${props => (props.color ? props.color : "#DB5776")};
+  background-color: ${props => props.theme.bg.secondary};
   position: relative;
   overflow: hidden;
   max-width: 40rem;
@@ -121,10 +148,6 @@ export const CoursesContainer = styled.section`
   }
 
   &:hover {
-    h1 {
-      filter: brightness(20%);
-    }
-
     .course-link {
       text-decoration: underline;
     }
