@@ -10,6 +10,7 @@ import {
 import { H1, P } from "../elements"
 import human from "../images/1.svg"
 import { PostCard } from "../components/post-card/PostCard"
+import SEO from "../components/seo/SEO"
 
 const allPosts = ({ pageContext, data }) => {
   const { currentPage, numPage } = pageContext
@@ -23,6 +24,13 @@ const allPosts = ({ pageContext, data }) => {
   return (
     <>
       <Container>
+        <SEO
+          pageMeta={{
+            title: "Blogs",
+            keywords: ["blog"],
+            description: "Blogs list",
+          }}
+        />
         {data.blogs.edges.map(edge => (
           <Link to={`/blog/${edge.node.frontmatter.slug}`}>
             <PostCard

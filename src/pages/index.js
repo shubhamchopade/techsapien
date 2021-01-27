@@ -23,10 +23,18 @@ import {
   SVGBackgroundColor,
   SVGBackgroundFont,
 } from "../components/landing/SVGBackground"
+import SEO from "../components/seo/SEO"
 
 const index = () => {
   return (
     <Landing>
+      <SEO
+        pageMeta={{
+          title: "Home",
+          keywords: ["home", "home", "home"],
+          description: "Best frontend developer code snippets and tips.",
+        }}
+      />
       <img className="bg-blob" src={blob} />
       <img className="bg-dots" src={dots} />
       <SVGBackgroundColor />

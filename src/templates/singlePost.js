@@ -17,6 +17,7 @@ import {
   SVGBackgroundColor,
   SVGBackgroundFont,
 } from "../components/landing/SVGBackground"
+import SEO from "../components/seo/SEO"
 
 const singlePost = ({ pageContext, data }) => {
   const featureImage = data.mdx.frontmatter.featureImage.childImageSharp.fixed
@@ -43,6 +44,13 @@ const singlePost = ({ pageContext, data }) => {
   return (
     <>
       <PostHeader color={data.mdx.frontmatter.category}>
+        <SEO
+          pageMeta={{
+            title: data.mdx.frontmatter.title,
+            keywords: ["home", "home", "home"],
+            description: data.mdx.frontmatter.excerpt,
+          }}
+        />
         <SVGBackgroundColor />
         <SVGBackgroundFont />
         <SVGBackgroundBlob />

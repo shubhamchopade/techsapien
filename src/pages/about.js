@@ -3,6 +3,7 @@ import styled from "styled-components"
 import shubham from "../images/shubham.png"
 import { useStaticQuery, Link, graphql } from "gatsby"
 import { motion } from "framer-motion"
+import SEO from "../components/seo/SEO"
 
 const About = () => {
   const data = useStaticQuery(graphql`
@@ -14,6 +15,13 @@ const About = () => {
   `)
   return (
     <AboutContainer>
+      <SEO
+        pageMeta={{
+          title: "About",
+          keywords: ["about"],
+          description: "Best frontend developer code snippets and tips.",
+        }}
+      />
       <h1>About</h1>
       <div className="wrapper">
         <p>
