@@ -73,7 +73,7 @@ export const BlogSlider = () => {
               : human
           }
           description={edge.node.frontmatter.excerpt}
-          margin=""
+          margin="0"
           slug={edge.node.frontmatter.slug}
         />
       ))}

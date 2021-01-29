@@ -10,7 +10,6 @@ export const PostCard = ({
   image,
   title,
   description,
-  link,
   margin,
   slug,
 }) => {
@@ -61,7 +60,8 @@ export const PostCard = ({
 }
 
 const StyledLink = styled(Link)`
-  margin: ${props => (props.margin ? props.margin : "margin")};
+  /* margin: ${props => (props.margin ? props.margin : "margin")}; */
+  margin: 2rem;
 `
 
 const PostCardWrapper = styled.div`
@@ -70,7 +70,6 @@ const PostCardWrapper = styled.div`
   border-radius: 2rem;
   position: relative;
   overflow: hidden;
-  margin: 2rem;
   background-color: ${props => props.theme.bg.secondary};
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
   transition: cubic-bezier(0.165, 0.84, 0.44, 1) 0.2s;
@@ -155,7 +154,7 @@ const Description = styled.p`
   width: 100%;
 `
 
-const BlogLink = styled(Link)`
+const BlogLink = styled.div`
   background: -webkit-linear-gradient(109.08deg, #2298bd 6.16%, #0ed7b5 91.66%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;

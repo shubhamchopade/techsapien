@@ -14,7 +14,7 @@ module.exports = {
         short_name: `techsapien`,
         start_url: `/`,
         description: `The application does cool things and makes your life better.`,
-        icon: "src/images/logo.svg",
+        icon: "src/images/header.svg",
         background_color: `#f7f0eb`,
         theme_color: `#a2466c`,
         display: `standalone`,
