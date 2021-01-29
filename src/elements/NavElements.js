@@ -58,8 +58,8 @@ export const Ul = styled.ul`
 
 export const NavWrapper = styled.nav`
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  place-items: z;
+  grid-template-columns: 1fr 1rem 1fr;
+  place-items: center start;
   width: 100%;
   max-width: 1600px;
   margin: 0 auto;
