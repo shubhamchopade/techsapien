@@ -25,17 +25,35 @@ export const Footer = () => {
     <FooterWrapper>
       <FooterSocialWrapper>
         <FooterSocialIcons>
-          <a href="https://facebook.com" target="_blank" rel="noereferrer">
+          <a
+            href="https://www.facebook.com/techsapien10/"
+            target="_blank"
+            rel="noereferrer"
+          >
             <img src={data.facebook.publicURL} alt="facebook logo" />
           </a>
-          <a href="https://instagram.com" target="_blank" rel="noereferrer">
+          <a
+            href="https://instagram.com/tech.sapien"
+            target="_blank"
+            rel="noereferrer"
+          >
             <img src={data.instagram.publicURL} alt="instagram logo" />
           </a>
-          <a href="https://twitter.com" target="_blank" rel="noereferrer">
+          <a
+            href="https://twitter.com/chopadeshubham4"
+            target="_blank"
+            rel="noereferrer"
+          >
             <img src={data.twitter.publicURL} alt="twitter logo" />
           </a>
         </FooterSocialIcons>
-        <P>&#169; 2020 Tech Sapien. All rights reserved.</P>
+        <P>
+          Developed and Designed by{" "}
+          <a href="https://shubhamchopade.ml" target="_blank" no>
+            Shubham Chopade
+          </a>
+          . <br /> &#169; {new Date().getFullYear()} All rights reserved.
+        </P>
       </FooterSocialWrapper>
     </FooterWrapper>
   )

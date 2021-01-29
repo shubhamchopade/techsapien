@@ -23,7 +23,7 @@ const singleCourse = ({ data }) => {
           <p>Course coming soon...😎</p>
           <p>
             Meanwhile check out{" "}
-            <Link className="link" to="resource">
+            <Link className="link" to="/resource">
               resources
             </Link>{" "}
           </p>
