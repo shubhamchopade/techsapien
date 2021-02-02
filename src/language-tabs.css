@@ -1,9 +1,25 @@
 .gatsby-highlight {
   position: relative;
-  -webkit-overflow-scrolling: touch;
+}
+
+::-webkit-scrollbar {
+  height: 5px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #b2ece1;
+  border-radius: 10px;
+  filter: brightness(50%);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #6cdac6;
+}
+::-webkit-scrollbar-thumb:active {
+  background: #31c4a9;
 }
 .gatsby-highlight pre[class*="language-"] {
-  -webkit-overflow-scrolling: touch;
+  overflow-x: scroll;
 }
 .gatsby-highlight pre[class*="language-"]::before {
   background: black;
