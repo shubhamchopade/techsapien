@@ -6,6 +6,8 @@ import { DarkContext } from "./store/context"
 import "./language-tabs.css"
 import { MDXProvider } from "@mdx-js/react"
 import { Button, Code, Footer, Nav } from "./components"
+import { ResourceBlock } from "./components/resource/ResourceBlock"
+import { ResourceBlockContainer } from "./components/resource/ResourceBlockContainer"
 
 const GlobalStyles = createGlobalStyle`
     *{
@@ -44,6 +46,8 @@ const components = {
   wrapper: ({ children }) => <>{children}</>,
   Button,
   Footer,
+  ResourceBlock,
+  ResourceBlockContainer,
 }
 export const RootElement = ({ element }) => {
   const [isDark, setIsDark] = useState("dark")

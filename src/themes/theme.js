@@ -16,7 +16,7 @@ export const dark = {
   bg: {
     main: "#102A43",
     secondary: "#243B53",
-    neutral: "#829AB1",
+    neutral: "#334E68",
   },
   text: {
     main: "#F0F4F8",
