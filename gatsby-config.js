@@ -10,10 +10,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-google-gtag`,
       options: {
-        trackingId: "G-PXZ384FFQZ",
-        // this option places the tracking script into the head of the DOM
-        head: true,
-        // other options
+        trackingIds: ["G-PXZ384FFQZ"],
       },
     },
     {
