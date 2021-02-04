@@ -26,9 +26,26 @@ const GlobalStyles = createGlobalStyle`
         font-family: ${props => props.theme.fonts.main};
         background-color: ${props => props.theme.bg.main};
 
-        .autolink-header {
-          fill: ${props => props.theme.text.main};
+         .autolink-header {
+          fill: none;
           margin: 0 1rem;
+        }
+
+        h1:hover{
+          .autolink-header {
+          fill: ${props => props.theme.text.main};
+          
+
+          &:hover{
+            fill: ${props => props.theme.text.neutral};
+          }
+        }
+        }
+        h2:hover{
+          .autolink-header {
+          fill: ${props => props.theme.text.main};
+          
+        }
         }
     }
 `
@@ -69,8 +86,6 @@ export const RootElement = ({ element }) => {
       require("smooth-scroll")('a[href*="#"]')
     }
   }, [])
-
-  console.log(isSans)
 
   return (
     <MDXProvider components={components}>

@@ -12,7 +12,12 @@ export const TableOfContents = ({ post }) => {
 
   return (
     <nav className="navbar">
-      <Scrollspy items={url} currentClassName="is-current" className="toc-list">
+      <Scrollspy
+        offset={-100}
+        items={url}
+        currentClassName="is-current"
+        className="toc-list"
+      >
         {post.items.map(heading => (
           <li key={heading.url}>
             <a href={heading.url}>{heading.title}</a>

@@ -1,3 +1,4 @@
+import { Link } from "gatsby"
 import styled from "styled-components"
 
 export const Landing = styled.main`
@@ -219,9 +220,9 @@ export const ResourcesContainer = styled.div`
   flex-wrap: wrap;
 `
 
-export const ResourcePill = styled.section`
-  padding: 1rem;
+export const ResourcePill = styled(Link)`
   margin: 1rem;
+  padding: 1rem;
   font-size: 1.2rem;
   background-color: ${props => (props.color ? props.color : "#f123da")};
   display: flex;

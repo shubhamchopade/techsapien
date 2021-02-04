@@ -37,18 +37,17 @@ const AllResources = () => {
     }
   `)
   return (
-    <>
+    <ResourcesContainer>
       {data.allMdx.edges.map(edge => (
-        <Link to={`/resource/${edge.node.frontmatter.slug}`}>
-          <ResourcesContainer>
-            <ResourcePill color={edge.node.frontmatter.color}>
-              <p>{edge.node.frontmatter.title}</p>
-              <img src={arrow} />
-            </ResourcePill>
-          </ResourcesContainer>
-        </Link>
+        <ResourcePill
+          to={`/resource/${edge.node.frontmatter.slug}`}
+          color={edge.node.frontmatter.color}
+        >
+          <p>{edge.node.frontmatter.title}</p>
+          <img src={arrow} />
+        </ResourcePill>
       ))}
-    </>
+    </ResourcesContainer>
   )
 }
 

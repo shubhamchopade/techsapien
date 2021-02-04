@@ -167,6 +167,7 @@ export const PostWrapper = styled.main`
     margin: 3rem auto;
     padding: 2rem;
     border-left: 10px solid #ccc;
+    background: ${props => props.theme.bg.neutral};
   }
   ul,
   ol {
