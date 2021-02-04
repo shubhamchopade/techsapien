@@ -16,9 +16,13 @@ const StyledDiv = styled.div`
   justify-items: center;
   align-items: center;
   border-radius: 1rem;
-  width: 15rem;
+  max-width: 15rem;
   background-color: ${props => props.theme.bg.neutral};
   margin: 1rem;
+
+  @media (max-width: ${props => props.theme.breakpoints.mobile}) {
+    margin: 0 auto;
+  }
 
   p {
     margin: 0;
