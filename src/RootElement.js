@@ -5,10 +5,11 @@ import React, { useState, useEffect } from "react"
 import { DarkContext } from "./store/context"
 import "./language-tabs.css"
 import { MDXProvider } from "@mdx-js/react"
-import { Button, Code, Footer, Nav } from "./components"
+import { Button, Code, Footer, Nav, Loader } from "./components"
 import { ResourceBlock } from "./components/resource/ResourceBlock"
 import { ResourceBlockContainer } from "./components/resource/ResourceBlockContainer"
 import { CustomCursor } from "./components/blog/custom-cursor/CustomCursor"
+import { AnimatePresence } from "framer-motion"
 
 const GlobalStyles = createGlobalStyle`
     *{
@@ -94,6 +95,9 @@ export const RootElement = ({ element }) => {
       <DarkContext.Provider value={[isDark, setIsDark, isSans, setIsSans]}>
         <ThemeProvider theme={{ ...themeMode, fontFamily }}>
           <GlobalStyles />
+          <AnimatePresence>
+            <Loader />
+          </AnimatePresence>
           <Nav />
           {element}
           <Footer />

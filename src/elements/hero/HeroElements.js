@@ -1,7 +1,11 @@
+import { motion } from "framer-motion"
 import { Link } from "gatsby"
 import styled from "styled-components"
 
-export const Landing = styled.main`
+export const Landing = styled(motion.main).attrs({
+  initial: { opacity: 0 },
+  animate: { opacity: 1, transition: { delay: 5 } },
+})`
   max-width: 1600px;
   margin: 0 auto;
   background-color: ${props => props.theme.bg.main};
@@ -102,6 +106,16 @@ export const HeroText = styled.section`
       justify-content: center;
       align-items: center;
       font-weight: 700;
+
+      .arrow {
+        width: 1.5rem;
+        margin-left: 0.3rem;
+        transition: 0.3s;
+
+        path {
+          fill: ${props => props.theme.text.neutral};
+        }
+      }
 
       &:hover {
         .arrow {
