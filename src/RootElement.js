@@ -95,7 +95,7 @@ export const RootElement = ({ element }) => {
       <DarkContext.Provider value={[isDark, setIsDark, isSans, setIsSans]}>
         <ThemeProvider theme={{ ...themeMode, fontFamily }}>
           <GlobalStyles />
-          {/* <Loader /> */}
+          <Loader />
           <Nav />
           {element}
           <Footer />

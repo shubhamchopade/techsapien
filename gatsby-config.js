@@ -7,6 +7,7 @@
 module.exports = {
   /* Your site config here */
   plugins: [
+    `gatsby-plugin-styled-components`,
     {
       resolve: `gatsby-plugin-google-gtag`,
       options: {
@@ -28,7 +29,7 @@ module.exports = {
     },
     `gatsby-plugin-offline`,
     `gatsby-transformer-sharp`,
-    `gatsby-plugin-styled-components`,
+
     `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-plugin-mdx`,
