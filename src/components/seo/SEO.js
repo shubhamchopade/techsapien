@@ -15,11 +15,14 @@ const SEO = ({ pageMeta, children }) => (
       <meta property="og:description" content={pageMeta.description} />
       <meta property="og:image" content={pageMeta.img ? pageMeta.img : logo} />
       <meta property="og:url" content={pageMeta.url} />
+      <meta property="og:type" content="article" />
 
       <meta
         property="twitter:title"
         content={`Tech Sapien | ${pageMeta.title}`}
       />
+      <meta property="twitter:card" content="summary" />
+      <meta property="twitter:site" content="@chopadeshubham4" />
       <meta property="twitter:description" content={pageMeta.description} />
       <meta
         property="twitter:image"

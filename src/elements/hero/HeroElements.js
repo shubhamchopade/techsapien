@@ -4,7 +4,7 @@ import styled from "styled-components"
 
 export const Landing = styled(motion.main).attrs({
   initial: { opacity: 0 },
-  animate: { opacity: 1, transition: { delay: 5 } },
+  animate: { opacity: 1 },
 })`
   max-width: 1600px;
   margin: 0 auto;

@@ -39,7 +39,6 @@ const singlePost = ({ pageContext, data }) => {
     if (next && post.node.id === next.node.id)
       nextImage = post.node.frontmatter.featureImage.childImageSharp.fixed
   })
-  console.log(prevImage, nextImage)
 
   return (
     <>

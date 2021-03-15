@@ -35,7 +35,7 @@ const HeroLatestPost = () => {
   `)
   return (
     <div>
-      <StyledHeading>LATEST</StyledHeading>
+      <StyledHeading margin="40px 0 0 0">LATEST</StyledHeading>
       {data.allMdx.edges.map(edge => (
         <Link to={`blog/${edge.node.frontmatter.slug}`}>
           <PostCard

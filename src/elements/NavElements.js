@@ -9,7 +9,7 @@ export const StyledBurger = styled.div`
   left: 20px;
   z-index: 9999;
   display: none;
-  @media (max-width: 768px) {
+  @media ${props => props.theme.breakpoints.tablet} {
     display: flex;
     justify-content: space-around;
     flex-flow: column nowrap;
@@ -39,7 +39,7 @@ export const Ul = styled.ul`
   flex-flow: row nowrap;
   overflow: hidden;
 
-  @media (max-width: 768px) {
+  @media ${props => props.theme.breakpoints.tablet} {
     flex-flow: column nowrap;
     position: fixed;
     transform: ${({ open }) => (open ? "translateX(0)" : "translateX(-100%)")};
@@ -133,7 +133,7 @@ export const LogoLink = styled(Link)`
     transform: translate(-50%, -50%);
     z-index: 1;
     border-radius: 50%;
-    box-shadow: 1px 5px 8px 0px ${props => props.theme.shadows.shadow1};
+    filter: drop-shadow(1px 2px 0.2rem ${props => props.theme.text.neutral});
   }
 `
 export const ThemeSwitcher = styled.div`

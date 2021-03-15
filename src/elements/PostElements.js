@@ -231,9 +231,9 @@ export const PostNavContainer = styled.div`
 
 export const PostNavLink = styled(Link)`
   margin: ${props =>
-    !props.prev
+    props.prev
       ? "1rem auto 1rem 1rem"
-      : !props.next
+      : props.next
       ? "1rem 1rem 1rem auto"
       : "1rem auto"};
   padding: 1rem;
