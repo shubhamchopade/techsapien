@@ -1,5 +1,7 @@
 .gatsby-highlight {
   position: relative;
+  max-width: 40rem;
+  margin: 0 auto;
 }
 
 ::-webkit-scrollbar {
@@ -37,10 +39,15 @@
 .gatsby-highlight pre[class~="language-js"]::before {
   content: "js";
   background: #f7df1e;
-  color: black;
+  color: rgb(22, 22, 22);
 }
 .gatsby-highlight pre[class~="language-css"]::before {
   content: "css";
   background: #08b102;
-  color: black;
+  color: rgb(22, 22, 22);
+}
+.gatsby-highlight pre[class~="language-jsx"]::before {
+  content: "react";
+  background: #00D8FF;
+  color: rgb(22, 22, 22);
 }

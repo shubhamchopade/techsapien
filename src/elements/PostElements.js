@@ -24,17 +24,17 @@ export const PostHeader = styled.section`
       font-size: 0.8rem;
       font-weight: 600;
       color: ${props => {
-        switch (props.color) {
-          case "development":
-            return props.theme.pill.development
-          case "motivation":
-            return props.theme.pill.motivation
-          case "productivity":
-            return props.theme.pill.productivity
-          default:
-            return props.theme.pill.default
-        }
-      }};
+    switch (props.color) {
+      case "development":
+        return props.theme.pill.development
+      case "motivation":
+        return props.theme.pill.motivation
+      case "productivity":
+        return props.theme.pill.productivity
+      default:
+        return props.theme.pill.default
+    }
+  }};
     }
 
     h1 {
@@ -78,7 +78,6 @@ export const PostHeader = styled.section`
 `
 
 export const PostWrapper = styled.main`
-  max-width: 40rem;
   width: 90%;
   margin: 0 auto;
   z-index: 10;
@@ -100,6 +99,17 @@ export const PostWrapper = styled.main`
   h5,
   h6 {
     margin-top: 2rem;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p, li {
+    max-width: 40rem;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   h1 {
@@ -143,6 +153,18 @@ export const PostWrapper = styled.main`
     font-family: ${props => props.theme.fontFamily.paragraph};
   }
 
+      .small-text {
+        display: none;
+      @media ${props => props.theme.breakpoints.mobile}{
+        display: block;
+        line-height: normal;
+        font-size: .825rem;
+        margin-top: 1rem;
+        color: ${props => props.theme.text.secondary};
+      }
+      
+    }
+
   a {
     color: ${props => props.theme.text.main};
     text-decoration: underline;
@@ -174,14 +196,11 @@ export const PostWrapper = styled.main`
     color: ${props => props.theme.text.main};
     margin: 1rem 0 1rem 2rem;
   }
-  li {
-    margin: 0.25rem 0;
-  }
 
   pre {
     font-family: ${props => props.theme.fonts.code};
     font-size: 0.875rem;
-    margin: 1rem 0;
+    margin: 1rem auto;
     border-radius: 0.5rem;
     line-height: 1.875rem;
     color: ${props => props.theme.text.main};
@@ -234,8 +253,8 @@ export const PostNavLink = styled(Link)`
     props.prev
       ? "1rem auto 1rem 1rem"
       : props.next
-      ? "1rem 1rem 1rem auto"
-      : "1rem auto"};
+        ? "1rem 1rem 1rem auto"
+        : "1rem auto"};
   padding: 1rem;
   display: flex;
   align-items: center;

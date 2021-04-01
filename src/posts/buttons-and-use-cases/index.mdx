@@ -1,0 +1,87 @@
+---
+title: Buttons and their Use Cases
+date: 2021-4-1
+excerpt: A descriptive guide for designing buttons for your website. Includes the use cases.
+slug: buttons-and-use-cases
+featureImage: 1.png
+category: development
+posttype: blog
+---
+
+Buttons are a vital part of any website. There are different kinds of interactions that we can perform on a button from hover state to being active state.
+
+<blockquote>
+  <p>Always code for accessibility when you are styling anything.</p>
+</blockquote>
+
+Let’s start with this very simple button that we are going to manipulate using outline and background color.
+
+## 1. Solid Button
+
+<SolidButton1 children="Solid Button" />
+<p class='small-text'>Please view on larger screens for better understanding and experience.</p>
+
+As you can notice, the buttons are not too fancy. Just a subtle change in the color and the outline for two different states.
+
+```jsx
+const SolidButton = styled.button`
+  background: #627D98;
+  padding: 11px 49px;
+  border: none;
+  border-radius: 10px;
+  font-family: Inter, Arial;
+  color: #fff;
+  font-weight: 600;
+  font-size: 15px;
+  border: 4px solid #fff;
+  outline: none;
+  margin: 2rem auto;
+
+  &:focus, &:hover {
+      background: #334E68;
+  }
+  &:focus, &:active {
+      background: #D9E2EC;
+      border: 4px solid #627D98;
+  }
+`
+```
+
+### Practical usecases :
+- When specifying primary action buttons.
+- For showcasing critical actions.
+
+## 2. Outlined Button
+
+<OutlinedButton1 children="Outlined Button" />
+<p class='small-text'>Please view on larger screens for better understanding and experience.</p>
+
+Again, the buttons a subtle change in the background color on hover and border when active.
+
+```jsx
+const OutlinedButton = styled.button`
+  background: transparent;
+  padding: 11px 49px;
+  border: none;
+  border-radius: 10px;
+  font-family: Inter, Arial;
+  color: #627D98;
+  font-weight: 600;
+  font-size: 15px;
+  border: 2px solid #627D98;
+  outline: none;
+  margin: 2rem auto;
+
+  &:focus, &:hover {
+      background: #334E68;
+  }
+  &:focus, &:active {
+      background: #627D98;
+      border: 4px solid #627D98;
+  }
+`
+```
+
+### Practical usecases :
+- When specifying secondary action buttons.
+- As a sub-action button.

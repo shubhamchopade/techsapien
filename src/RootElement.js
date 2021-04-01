@@ -5,15 +5,15 @@ import React, { useState, useEffect } from "react"
 import { DarkContext } from "./store/context"
 import "./language-tabs.css"
 import { MDXProvider } from "@mdx-js/react"
-import { Button, Code, Footer, Nav, Loader } from "./components"
+import { Code, Footer, Nav, Loader } from "./components"
 import { ResourceBlock } from "./components/resource/ResourceBlock"
 import { ResourceBlockContainer } from "./components/resource/ResourceBlockContainer"
-import { CustomCursor } from "./components/blog/custom-cursor/CustomCursor"
+import { CustomCursor, SolidButton1, OutlinedButton1 } from "./components/blog"
 import { AnimatePresence } from "framer-motion"
 
 const GlobalStyles = createGlobalStyle`
     *{
-        box-sizing: border-box;
+      box-sizing: border-box;
         margin: 0;
         padding: 0;
         transition: ${props => props.theme.animations.theme};
@@ -63,22 +63,23 @@ const components = {
     return <pre {...preProps} />
   },
   wrapper: ({ children }) => <>{children}</>,
-  Button,
   Footer,
   ResourceBlock,
   ResourceBlockContainer,
   CustomCursor,
+  SolidButton1,
+  OutlinedButton1
 }
 export const RootElement = ({ element }) => {
-  const [isDark, setIsDark] = useState("dark")
+  const [isDark, setIsDark] = useState("warm")
   const [isSans, setIsSans] = useState("sans")
   let themeMode = ""
   themeMode =
     isDark === "dark"
       ? { ...dark, ...commonStyles }
       : isDark === "warm"
-      ? { ...warm, ...commonStyles }
-      : { ...light, ...commonStyles }
+        ? { ...warm, ...commonStyles }
+        : { ...light, ...commonStyles }
 
   let fontFamily =
     isSans === "sans" ? font.sans : isSans === "serif" ? font.serif : font.slab
@@ -93,9 +94,9 @@ export const RootElement = ({ element }) => {
   return (
     <MDXProvider components={components}>
       <DarkContext.Provider value={[isDark, setIsDark, isSans, setIsSans]}>
-        <ThemeProvider theme={{ ...themeMode, fontFamily }}>
+        <ThemeProvider theme={{ ...themeMode, fontFamily, light, dark, warm }}>
           <GlobalStyles />
-          <Loader />
+          {/* <Loader /> */}
           <Nav />
           {element}
           <Footer />

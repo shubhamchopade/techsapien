@@ -49,6 +49,7 @@ const SVGBlob = styled.div`
   }
 
   .blob1 {
+    
     position: absolute;
     right: 20px;
     top: 0;
@@ -58,6 +59,7 @@ const SVGBlob = styled.div`
       width: 60%;
     }
     path {
+      backdrop-filter: blur( 4px );
       fill: ${props => props.theme.bg.neutral};
     }
   }
@@ -74,6 +76,7 @@ const SVGBlob = styled.div`
       width: 60%;
     }
     path {
+          backdrop-filter: blur( 4px );
       fill: ${props => props.theme.bg.neutral};
     }
   }
