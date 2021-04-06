@@ -156,6 +156,7 @@ export const ThemeSwitcher = styled.div`
   border-radius: 100%;
   outline: #fff;
   margin-right: 0.5rem;
+  cursor: pointer;
 `
 
 export const FontSwitcher = styled(ThemeSwitcher)`

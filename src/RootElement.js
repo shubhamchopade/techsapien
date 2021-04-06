@@ -8,7 +8,7 @@ import { MDXProvider } from "@mdx-js/react"
 import { Code, Footer, Nav, Loader } from "./components"
 import { ResourceBlock } from "./components/resource/ResourceBlock"
 import { ResourceBlockContainer } from "./components/resource/ResourceBlockContainer"
-import { CustomCursor, SolidButton1, OutlinedButton1 } from "./components/blog"
+import { CustomCursor, SolidButton1, OutlinedButton1, Blob } from "./components/blog"
 import { AnimatePresence } from "framer-motion"
 
 const GlobalStyles = createGlobalStyle`
@@ -68,7 +68,8 @@ const components = {
   ResourceBlockContainer,
   CustomCursor,
   SolidButton1,
-  OutlinedButton1
+  OutlinedButton1,
+  Blob
 }
 export const RootElement = ({ element }) => {
   const [isDark, setIsDark] = useState("warm")
