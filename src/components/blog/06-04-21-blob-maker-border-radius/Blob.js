@@ -31,8 +31,6 @@ export const Blob = () => {
         grad6: '#D65108;'
     }
 
-    // { grad1, grad2, grad3 } = gradient;
-
 
     return (
         <>
