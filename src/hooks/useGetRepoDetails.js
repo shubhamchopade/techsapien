@@ -10,11 +10,11 @@ function useGetRepoDetails(data, setCurrentRepo) {
     setLoader(true)
     const getData = () => {
       if (owner) {
-        fetch(`http://api.github.com/repos/${owner}/${repoName}`)
+        fetch(`https://api.github.com/repos/${owner}/${repoName}`)
           .then(response => response.json())
           .then(data => setResponse(data))
           .then(setLoader(false))
-        fetch(`http://api.github.com/repos/${owner}/${repoName}/contents`)
+        fetch(`https://api.github.com/repos/${owner}/${repoName}/contents`)
           .then(response => response.json())
           .then(data => setContent(data))
           .then(() => setCurrentRepo({}))
