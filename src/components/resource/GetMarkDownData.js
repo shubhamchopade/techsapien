@@ -1,20 +1,27 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import styled from "styled-components"
 import ReactMarkdown from "react-markdown"
 import useGetCategoryObject from "../../hooks/useGetCategoryObject"
 import useGetRepoDetails from "../../hooks/useGetRepoDetails"
 import useGetReadMeFileAsText from "../../hooks/useGetReadMeFileAsText"
+import { graphql, useStaticQuery } from "gatsby"
 
 const GetMarkDownData = () => {
-  const data = useGetCategoryObject()
+  const data = useStaticQuery(graphql`
+    query {
+      github {
+        data
+      }
+    }
+  `)
   const [currentRepo, setCurrentRepo] = useState({
     owner: "",
     repoName: "",
   })
   const repoDetails = useGetRepoDetails(currentRepo, setCurrentRepo)
+  const [starCount, setStarCount] = useState(0)
 
-  let { response } = data
-  const contents = response.split("## ")
+  const contents = data.github.data.split("## ")
   const getReadMeFile =
     repoDetails.content &&
     repoDetails.content.filter(a => a.name.toLowerCase() === "readme.md")
@@ -23,7 +30,9 @@ const GetMarkDownData = () => {
     getReadMeFile[0] && getReadMeFile[0].download_url
   )
 
-  console.log(textResponse)
+  useEffect(() => {
+    setStarCount(repoDetails.response.stargazers_count)
+  }, [repoDetails.response.stargazers_count])
 
   let content = contents.map((c, i) => {
     let heading = ""
@@ -55,10 +64,11 @@ const GetMarkDownData = () => {
 
   return (
     <>
+      <p>{starCount}</p>
+      {textResponse.status === "LOADING" && "loading..."}
       <MarkdownContainer>
         <ReactMarkdown children={textResponse.response} />
       </MarkdownContainer>
-
       {content.map((c, index) => {
         return (
           <ResourceContainer key={index}>
@@ -81,9 +91,14 @@ export default GetMarkDownData
 
 const MarkdownContainer = styled.main`
   max-height: 30rem;
+  max-width: 30rem;
   overflow-y: auto;
   background-color: ${props => props.theme.light.bg.main};
   padding: 4rem;
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 4;
 
   a {
     color: blue;
