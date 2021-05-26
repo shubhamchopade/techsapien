@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 
-function useGetRepoDetails(data) {
+function useGetRepoDetails(data, setCurrentRepo) {
   const [response, setResponse] = useState("")
   const [loader, setLoader] = useState(true)
   let [content, setContent] = useState("")
@@ -17,6 +17,7 @@ function useGetRepoDetails(data) {
         fetch(`http://api.github.com/repos/${owner}/${repoName}/contents`)
           .then(response => response.json())
           .then(data => setContent(data))
+          .then(() => setCurrentRepo({}))
       }
     }
     getData()

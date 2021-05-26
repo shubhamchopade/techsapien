@@ -3,6 +3,7 @@ import styled from "styled-components"
 import ReactMarkdown from "react-markdown"
 import useGetCategoryObject from "../../hooks/useGetCategoryObject"
 import useGetRepoDetails from "../../hooks/useGetRepoDetails"
+import useGetReadMeFileAsText from "../../hooks/useGetReadMeFileAsText"
 
 const GetMarkDownData = () => {
   const data = useGetCategoryObject()
@@ -10,14 +11,19 @@ const GetMarkDownData = () => {
     owner: "",
     repoName: "",
   })
-  const repoDetails = useGetRepoDetails(currentRepo)
+  const repoDetails = useGetRepoDetails(currentRepo, setCurrentRepo)
+
   let { response } = data
   const contents = response.split("## ")
-  const getReadMeFile = repoDetails.content.filter(
-    a => a.name.toLowerCase() === "readme.md"
+  const getReadMeFile =
+    repoDetails.content &&
+    repoDetails.content.filter(a => a.name.toLowerCase() === "readme.md")
+
+  const textResponse = useGetReadMeFileAsText(
+    getReadMeFile[0] && getReadMeFile[0].download_url
   )
 
-  console.log(getReadMeFile[0].download_url)
+  console.log(textResponse)
 
   let content = contents.map((c, i) => {
     let heading = ""
@@ -49,6 +55,10 @@ const GetMarkDownData = () => {
 
   return (
     <>
+      <MarkdownContainer>
+        <ReactMarkdown children={textResponse.response} />
+      </MarkdownContainer>
+
       {content.map((c, index) => {
         return (
           <ResourceContainer key={index}>
@@ -68,6 +78,17 @@ const GetMarkDownData = () => {
 }
 
 export default GetMarkDownData
+
+const MarkdownContainer = styled.main`
+  max-height: 30rem;
+  overflow-y: auto;
+  background-color: ${props => props.theme.light.bg.main};
+  padding: 4rem;
+
+  a {
+    color: blue;
+  }
+`
 
 const ResourceContainer = styled.section`
   margin: 2rem auto;
