@@ -9,7 +9,7 @@ function useGetCategoryObject(string) {
     setLoader(true)
     const getData = () => {
       fetch(
-        "http://raw.githubusercontent.com/sindresorhus/awesome/main/readme.md"
+        "https://raw.githubusercontent.com/sindresorhus/awesome/main/readme.md"
       )
         .then(response => response.text())
         .then(data => setResponse(data))
