@@ -1,63 +1,86 @@
-import React from "react"
+import React, { useState } from "react"
 import styled from "styled-components"
 import ReactMarkdown from "react-markdown"
 import useGetCategoryObject from "../../hooks/useGetCategoryObject"
+import useGetRepoDetails from "../../hooks/useGetRepoDetails"
 
 const GetMarkDownData = () => {
-  const singleCategory = useGetCategoryObject("## Programming Languages")
-  console.log(singleCategory)
-  //   const csData = getCategoryString("## Computer Science")
-  //   console.log(singleCategory)
-  //   const platformData = getCategoryString("## Platforms")
-  //   const frontendData = getCategoryString("## Front-End Development")
-  //   const backendData = getCategoryString("## Back-End Development")
-  //   const bigData = getCategoryString("## Big Data")
-  //   const theoryData = getCategoryString("## Theory")
-  //   const booksData = getCategoryString("## Books")
-  //   const editorsData = getCategoryString("## Editors")
-  //   const gamingData = getCategoryString("## Gaming")
-  //   const devEnvData = getCategoryString("## Development Environment")
-  //   const entertainmentData = getCategoryString("## Entertainment")
-  //   const databaseData = getCategoryString("## Databases")
-  //   const mediaData = getCategoryString("## Media")
-  //   const learnData = getCategoryString("## Learn")
-  //   const securityData = getCategoryString("## Security")
-  //   const cmsData = getCategoryString("## Content Management Systems")
-  //   const hardwareData = getCategoryString("## Hardware")
-  //   const businessData = getCategoryString("## Business")
-  //   const workData = getCategoryString("## Work")
-  //   const networkingData = getCategoryString("## Networking")
-  //   const decentralizedData = getCategoryString("## Decentralized Systems")
-  //   const higherEducationData = getCategoryString("## Higher Education")
-  //   const eventsData = getCategoryString("## Events")
-  //   const testingData = getCategoryString("## Testing")
-  //   const miscData = getCategoryString("## Miscellaneous")
-  //   const relatedData = getCategoryString("## Related")
+  const data = useGetCategoryObject()
+  const [currentRepo, setCurrentRepo] = useState({
+    owner: "",
+    repoName: "",
+  })
+  const repoDetails = useGetRepoDetails(currentRepo)
+  let { response } = data
+  const contents = response.split("## ")
+  const getReadMeFile = repoDetails.content.filter(
+    a => a.name.toLowerCase() === "readme.md"
+  )
 
-  const getNameAndOwner = category => {
-    const link = category.link
-    // const re = /\s*(?:;|$)\s*/
-    const nameList = link.split("/", 5)
-    const owner = nameList[3]
-    const name = nameList[4].split("#")[0]
-    console.log({ name, owner, link })
-  }
+  console.log(getReadMeFile[0].download_url)
+
+  let content = contents.map((c, i) => {
+    let heading = ""
+    let title = ""
+    let link = ""
+    let data = []
+    heading = c.split("\n\n")[0]
+    title =
+      c.match(/\[.*?\]/g) &&
+      c.match(/\[.*?\]/g).map(x => x.replace(/[[]]/g, ""))
+    link =
+      c.match(/\(.*?\)/g) &&
+      c.match(/\(.*?\)/g).map(x => x.replace(/[()]/g, ""))
+
+    if (title) {
+      for (let i = 0; i < title.length; i++) {
+        data.push({
+          title: title[i].replace(/[[]]/g, ""),
+          link: link[i],
+          owner: link[i].split("/", 5)[3],
+          repoName:
+            link[i].split("/", 5)[4] && link[i].split("/", 5)[4].split("#")[0],
+        })
+      }
+    }
+    return { heading, data }
+  })
+  content = content.splice(2, content.length)
 
   return (
-    <Wrapper>
-      <ReactMarkdown></ReactMarkdown>
-      {singleCategory.singleCategory.map((category, index) => (
-        <StyledBlock onClick={() => getNameAndOwner(category)} key={index}>
-          {category.title}
-        </StyledBlock>
-      ))}
-    </Wrapper>
+    <>
+      {content.map((c, index) => {
+        return (
+          <ResourceContainer key={index}>
+            <p>{c.heading}</p>
+            <ResourceSectionWrapper>
+              {c.data.map((d, idx) => (
+                <StyledBlock key={idx} onClick={() => setCurrentRepo(d)}>
+                  {d.title}
+                </StyledBlock>
+              ))}
+            </ResourceSectionWrapper>
+          </ResourceContainer>
+        )
+      })}
+    </>
   )
 }
 
 export default GetMarkDownData
 
-const Wrapper = styled.div`
+const ResourceContainer = styled.section`
+  margin: 2rem auto;
+  max-width: 70rem;
+  padding: 0 2rem;
+
+  p {
+    color: ${props => props.theme.text.main};
+    font-size: 2rem;
+  }
+`
+
+const ResourceSectionWrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
 `
