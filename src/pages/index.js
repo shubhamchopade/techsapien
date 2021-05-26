@@ -3,18 +3,14 @@ import HeroLatestPost from "../components/HeroLatestPost"
 import {
   Landing,
   BlogSliderContainer,
-  CoursesContainer,
   HeroText,
   HeroWrapper,
   StyledHeading,
   ResourcesContainer,
-  ResourcePill,
 } from "../elements/hero/HeroElements"
 import dots from "../images/bgDots.svg"
 import blob from "../images/bgBlob.svg"
 import blob2 from "../images/bgBlob2.svg"
-import arrow from "../images/arrow.svg"
-import frontendRoadmap from "../images/frontend-cover.svg"
 import { BlogSlider } from "../components/landing/BlogSlider"
 import { Link } from "gatsby"
 import LatestCourses from "../components/course/LatestCourses"
@@ -35,8 +31,8 @@ const index = () => {
           description: "Best frontend developer code snippets and tips.",
         }}
       />
-      <img className="bg-blob" src={blob} />
-      <img className="bg-dots" src={dots} />
+      <img alt="blob" className="bg-blob" src={blob} />
+      <img alt="dots" className="bg-dots" src={dots} />
       <SVGBackgroundColor />
       <SVGBackgroundFont />
       <HeroWrapper>
@@ -73,7 +69,7 @@ const index = () => {
       <LatestCourses />
 
       <BlogSliderContainer>
-        <img src={blob2} />
+        <img alt="blob" src={blob2} />
         <div>
           <StyledHeading>BLOGS</StyledHeading>
           <BlogSlider />

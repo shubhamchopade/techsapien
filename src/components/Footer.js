@@ -27,29 +27,29 @@ export const Footer = () => {
         <FooterSocialIcons>
           <a
             href="https://www.facebook.com/techsapien10/"
+            rel="noreferrer"
             target="_blank"
-            rel="noereferrer"
           >
             <img src={data.facebook.publicURL} alt="facebook logo" />
           </a>
           <a
             href="https://instagram.com/tech.sapien"
+            rel="noreferrer"
             target="_blank"
-            rel="noereferrer"
           >
             <img src={data.instagram.publicURL} alt="instagram logo" />
           </a>
           <a
             href="https://twitter.com/chopadeshubham4"
+            rel="noreferrer"
             target="_blank"
-            rel="noereferrer"
           >
             <img src={data.twitter.publicURL} alt="twitter logo" />
           </a>
         </FooterSocialIcons>
         <P>
           Developed and Designed by{" "}
-          <a href="https://shubhamchopade.ml" target="_blank" no>
+          <a href="https://shubhamchopade.ml" target="_blank" rel="noreferrer">
             Shubham Chopade
           </a>
           . <br /> &#169; {new Date().getFullYear()} All rights reserved.

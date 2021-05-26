@@ -1,14 +1,11 @@
-import React, { useContext } from "react"
+import React from "react"
 import styled from "styled-components"
-import { GithubContext } from "../../store/context"
-import awesomeList from "../../data/awesome-resources.md"
 import ReactMarkdown from "react-markdown"
+import useGetCategoryObject from "../../hooks/useGetCategoryObject"
 
 const GetMarkDownData = () => {
-  console.log(String(awesomeList))
-  const { singleCategory } = useContext(GithubContext)
-
-  //   const pgmingLangData = getCategoryString("## Programming Languages")
+  const singleCategory = useGetCategoryObject("## Programming Languages")
+  console.log(singleCategory)
   //   const csData = getCategoryString("## Computer Science")
   //   console.log(singleCategory)
   //   const platformData = getCategoryString("## Platforms")
@@ -37,11 +34,20 @@ const GetMarkDownData = () => {
   //   const miscData = getCategoryString("## Miscellaneous")
   //   const relatedData = getCategoryString("## Related")
 
+  const getNameAndOwner = category => {
+    const link = category.link
+    // const re = /\s*(?:;|$)\s*/
+    const nameList = link.split("/", 5)
+    const owner = nameList[3]
+    const name = nameList[4].split("#")[0]
+    console.log({ name, owner, link })
+  }
+
   return (
     <Wrapper>
       <ReactMarkdown></ReactMarkdown>
-      {singleCategory.map((category, index) => (
-        <StyledBlock key={index} href={category.link} target="__blank">
+      {singleCategory.singleCategory.map((category, index) => (
+        <StyledBlock onClick={() => getNameAndOwner(category)} key={index}>
           {category.title}
         </StyledBlock>
       ))}
@@ -56,7 +62,7 @@ const Wrapper = styled.div`
   flex-wrap: wrap;
 `
 
-const StyledBlock = styled.a`
+const StyledBlock = styled.div`
   color: ${props => props.theme.text.main};
   margin: 1rem;
   padding: 1rem;

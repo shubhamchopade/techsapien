@@ -1,7 +1,6 @@
-import { Link, useStaticQuery, graphql } from "gatsby"
+import { useStaticQuery, graphql } from "gatsby"
 import React from "react"
 import { PostCard } from "../post-card/PostCard"
-import { Container } from "../../components"
 import human from "../../images/1.svg"
 import styled from "styled-components"
 
@@ -62,8 +61,9 @@ export const BlogSlider = () => {
   `)
   return (
     <Slider>
-      {data.allMdx.edges.map(edge => (
+      {data.allMdx.edges.map((edge, idx) => (
         <PostCard
+          key={idx}
           topText={edge.node.frontmatter.title}
           pill={edge.node.frontmatter.category}
           title={edge.node.frontmatter.title}

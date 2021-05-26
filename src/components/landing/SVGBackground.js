@@ -4,7 +4,7 @@ import styled from "styled-components"
 import { DarkContext } from "../../store/context"
 
 export const SVGBackgroundColor = () => {
-  const [isDark, setIsDark] = useContext(DarkContext)
+  const { isDark } = useContext(DarkContext)
   return (
     <SVGColor>
       {isDark === "light" ? warm : isDark === "dark" ? light : dark}
@@ -12,7 +12,7 @@ export const SVGBackgroundColor = () => {
   )
 }
 export const SVGBackgroundFont = () => {
-  const [isDark, setIsDark, isSans, setIsSans] = useContext(DarkContext)
+  const { isSans } = useContext(DarkContext)
   return (
     <SVGFont>
       {isSans === "sans" ? serif : isSans === "serif" ? slab : sans}
@@ -21,7 +21,6 @@ export const SVGBackgroundFont = () => {
 }
 
 export const SVGBackgroundBlob = () => {
-  const [isDark, setIsDark] = useContext(DarkContext)
   return (
     <SVGBlob>
       {blob1}
@@ -49,7 +48,6 @@ const SVGBlob = styled.div`
   }
 
   .blob1 {
-    
     position: absolute;
     right: 20px;
     top: 0;
@@ -59,7 +57,7 @@ const SVGBlob = styled.div`
       width: 60%;
     }
     path {
-      backdrop-filter: blur( 4px );
+      backdrop-filter: blur(4px);
       fill: ${props => props.theme.bg.neutral};
     }
   }
@@ -76,7 +74,7 @@ const SVGBlob = styled.div`
       width: 60%;
     }
     path {
-          backdrop-filter: blur( 4px );
+      backdrop-filter: blur(4px);
       fill: ${props => props.theme.bg.neutral};
     }
   }

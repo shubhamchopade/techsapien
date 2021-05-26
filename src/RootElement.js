@@ -5,11 +5,15 @@ import React, { useState, useEffect } from "react"
 import { DarkContext } from "./store/context"
 import "./language-tabs.css"
 import { MDXProvider } from "@mdx-js/react"
-import { Code, Footer, Nav, Loader } from "./components"
+import { Code, Footer, Nav } from "./components"
 import { ResourceBlock } from "./components/resource/ResourceBlock"
 import { ResourceBlockContainer } from "./components/resource/ResourceBlockContainer"
-import { CustomCursor, SolidButton1, OutlinedButton1, Blob } from "./components/blog"
-import { AnimatePresence } from "framer-motion"
+import {
+  CustomCursor,
+  SolidButton1,
+  OutlinedButton1,
+  Blob,
+} from "./components/blog"
 
 const GlobalStyles = createGlobalStyle`
     *{
@@ -69,7 +73,7 @@ const components = {
   CustomCursor,
   SolidButton1,
   OutlinedButton1,
-  Blob
+  Blob,
 }
 export const RootElement = ({ element }) => {
   const [isDark, setIsDark] = useState("warm")
@@ -79,8 +83,8 @@ export const RootElement = ({ element }) => {
     isDark === "dark"
       ? { ...dark, ...commonStyles }
       : isDark === "warm"
-        ? { ...warm, ...commonStyles }
-        : { ...light, ...commonStyles }
+      ? { ...warm, ...commonStyles }
+      : { ...light, ...commonStyles }
 
   let fontFamily =
     isSans === "sans" ? font.sans : isSans === "serif" ? font.serif : font.slab
@@ -94,7 +98,7 @@ export const RootElement = ({ element }) => {
 
   return (
     <MDXProvider components={components}>
-      <DarkContext.Provider value={[isDark, setIsDark, isSans, setIsSans]}>
+      <DarkContext.Provider value={{ isDark, setIsDark, isSans, setIsSans }}>
         <ThemeProvider theme={{ ...themeMode, fontFamily, light, dark, warm }}>
           <GlobalStyles />
           {/* <Loader /> */}

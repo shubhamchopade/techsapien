@@ -1,18 +1,11 @@
 import React from "react"
 import { graphql } from "gatsby"
 import { MDXRenderer } from "gatsby-plugin-mdx"
-import { H1, P, PostHeader } from "../elements"
-import { Container, Post, FeatureImage } from "../components"
 import Img from "gatsby-image"
 import styled from "styled-components"
 
 const singleResource = ({ data }) => {
   const featureImage = data.mdx.frontmatter.featureImage.childImageSharp.fixed
-
-  const formatDate = dateString => {
-    const options = { year: "numeric", month: "long", day: "numeric" }
-    return new Date(dateString).toLocaleString(undefined, options)
-  }
 
   return (
     <>

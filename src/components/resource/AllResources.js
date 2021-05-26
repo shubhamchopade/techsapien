@@ -1,5 +1,5 @@
 import React from "react"
-import { graphql, Link, useStaticQuery } from "gatsby"
+import { graphql, useStaticQuery } from "gatsby"
 import arrow from "../../images/arrow.svg"
 import {
   ResourcePill,
@@ -44,7 +44,7 @@ const AllResources = () => {
           color={edge.node.frontmatter.color}
         >
           <p>{edge.node.frontmatter.title}</p>
-          <img src={arrow} />
+          <img alt={edge.node.frontmatter.slug} src={arrow} />
         </ResourcePill>
       ))}
     </ResourcesContainer>

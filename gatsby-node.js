@@ -85,8 +85,6 @@ exports.createPages = async function ({ actions, graphql }) {
       const next = count === postsArr.length ? null : postsArr[count + 1]
       count += 1
 
-      console.log(count, postsArr.length)
-
       actions.createPage({
         path: slug,
         component: require.resolve("./src/templates/singlePost.js"),

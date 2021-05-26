@@ -1,7 +1,6 @@
 import React from "react"
 import styled from "styled-components"
-import shubham from "../images/shubham.png"
-import { useStaticQuery, Link, graphql } from "gatsby"
+import { useStaticQuery, graphql } from "gatsby"
 import { motion } from "framer-motion"
 import SEO from "../components/seo/SEO"
 

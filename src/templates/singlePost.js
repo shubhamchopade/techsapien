@@ -1,17 +1,11 @@
 import React from "react"
-import { graphql, Link, useStaticQuery } from "gatsby"
+import { graphql } from "gatsby"
 import { MDXRenderer } from "gatsby-plugin-mdx"
-import { H1, P, PostHeader, PostNavLink, PostNavContainer } from "../elements"
-import { Container, Post, FeatureImage } from "../components"
+import { PostHeader, PostNavLink, PostNavContainer } from "../elements"
+import { Post } from "../components"
 import Img from "gatsby-image"
 import styled from "styled-components"
-import { TableOfContents } from "../components/blog/TableOfContents"
-import {
-  FacebookShareButton,
-  WhatsappShareButton,
-  TwitterShareButton,
-  LinkedinShareButton,
-} from "react-share"
+import { FacebookShareButton, TwitterShareButton } from "react-share"
 import {
   SVGBackgroundBlob,
   SVGBackgroundColor,

@@ -1,19 +1,19 @@
 import React from "react"
-import { graphql, Link } from "gatsby"
+import { graphql } from "gatsby"
 import arrow from "../images/arrow.svg"
 import { ResourcePill, ResourcesContainer } from "../elements/hero/HeroElements"
-import { Container } from "../components"
 
 const allResources = ({ data }) => {
   return (
     <ResourcesContainer>
-      {data.allMdx.edges.map(edge => (
+      {data.allMdx.edges.map((edge, idx) => (
         <ResourcePill
+          key={idx}
           to={`/resource/${edge.node.frontmatter.slug}`}
           color={edge.node.frontmatter.color}
         >
           <p>{edge.node.frontmatter.title}</p>
-          <img src={arrow} />
+          <img alt={edge.node.frontmatter.slug} src={arrow} />
         </ResourcePill>
       ))}
     </ResourcesContainer>

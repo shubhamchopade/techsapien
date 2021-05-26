@@ -1,23 +1,16 @@
 import React from "react"
 import { graphql, Link } from "gatsby"
-import {
-  Container,
-  Content,
-  ContentCard,
-  FeatureImage,
-  Pagination,
-} from "../components"
-import { H1, P } from "../elements"
+import { Container } from "../components"
 import human from "../images/1.svg"
 import { PostCard } from "../components/post-card/PostCard"
 import SEO from "../components/seo/SEO"
 
-const allPosts = ({ pageContext, data }) => {
-  const { currentPage, numPage } = pageContext
-  const isFirst = currentPage === 1
-  const isLast = currentPage === numPage
-  const prevPage = currentPage - 1 === 1 ? "/blog/" : `/blog/${currentPage - 1}`
-  const nextPage = `/blog/${currentPage + 1}`
+const allPosts = ({ data }) => {
+  // const { currentPage, numPage } = pageContext
+  // const isFirst = currentPage === 1
+  // const isLast = currentPage === numPage
+  // const prevPage = currentPage - 1 === 1 ? "/blog/" : `/blog/${currentPage - 1}`
+  // const nextPage = `/blog/${currentPage + 1}`
 
   console.log(data.blogs.edges)
 

@@ -9,7 +9,7 @@ import {
   Ul,
 } from "../elements"
 import React, { useContext, useState } from "react"
-import { useStaticQuery, Link, graphql } from "gatsby"
+import { useStaticQuery, graphql } from "gatsby"
 import { DarkContext } from "../store/context"
 
 export const Burger = () => {
@@ -54,7 +54,7 @@ export const RightNav = ({ open, setOpen }) => {
 }
 
 export const Nav = () => {
-  const [isDark, setIsDark, isSans, setIsSans] = useContext(DarkContext)
+  const { isDark, setIsDark, isSans, setIsSans } = useContext(DarkContext)
   const [colorCount, setColorCount] = useState(1)
   const [fontCount, setFontCount] = useState(1)
 

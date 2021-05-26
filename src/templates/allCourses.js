@@ -15,8 +15,8 @@ const StyledImg = styled(Img)`
 const allCourses = ({ data }) => {
   return (
     <>
-      {data.allMdx.edges.map(edge => (
-        <Link to={`/course/${edge.node.frontmatter.slug}`}>
+      {data.allMdx.edges.map((edge, idx) => (
+        <Link key={idx} to={`/course/${edge.node.frontmatter.slug}`}>
           <CoursesContainer color={edge.node.frontmatter.color}>
             <div>
               <p className="course-type">career</p>
