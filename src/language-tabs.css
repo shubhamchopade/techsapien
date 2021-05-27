@@ -5,13 +5,13 @@
 }
 
 ::-webkit-scrollbar {
-  height: 5px;
+  width: 5px;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
   background: #b2ece1;
-  border-radius: 10px;
+  border-radius: 2px;
   filter: brightness(50%);
 }
 ::-webkit-scrollbar-thumb:hover {
@@ -48,6 +48,6 @@
 }
 .gatsby-highlight pre[class~="language-jsx"]::before {
   content: "react";
-  background: #00D8FF;
+  background: #00d8ff;
   color: rgb(22, 22, 22);
 }
