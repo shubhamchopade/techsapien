@@ -1,29 +1,43 @@
 import { useEffect, useState } from "react"
 
-function useGetRepoDetails(data, setCurrentRepo) {
+function useGetRepoDetails(data, setCurrentRepo, setLoader) {
   const [response, setResponse] = useState("")
-  const [loader, setLoader] = useState(true)
+  const [parsedMarkdown, setParsedMarkdown] = useState("")
+
   let [content, setContent] = useState("")
   const { owner, repoName } = data
 
   useEffect(() => {
-    setLoader(true)
     const getData = () => {
       if (owner) {
+        setLoader(true)
         fetch(`https://api.github.com/repos/${owner}/${repoName}`)
           .then(response => response.json())
           .then(data => setResponse(data))
-          .then(setLoader(false))
         fetch(`https://api.github.com/repos/${owner}/${repoName}/contents`)
           .then(response => response.json())
           .then(data => setContent(data))
-          .then(() => setCurrentRepo({}))
       }
     }
     getData()
   }, [repoName, owner])
 
-  return { response, loader, content }
+  useEffect(() => {
+    const rawMarkdown =
+      content && content.filter(a => a.name.toLowerCase() === "readme.md")
+
+    console.log(rawMarkdown)
+    const getData = () => {
+      if (content) {
+        fetch(rawMarkdown[0].download_url)
+          .then(response => response.text())
+          .then(data => setParsedMarkdown(data))
+          .then(() => setLoader(false))
+      }
+    }
+    getData()
+  }, [content])
+  return { response, content, parsedMarkdown }
 }
 
 export default useGetRepoDetails

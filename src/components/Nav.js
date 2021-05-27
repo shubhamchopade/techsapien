@@ -46,7 +46,7 @@ export const RightNav = ({ open, setOpen }) => {
       <StyledLink onClick={() => setOpen(!open)} to="/blog">
         Blog
       </StyledLink>
-      <StyledLink onClick={() => setOpen(!open)} to="/resource">
+      <StyledLink onClick={() => setOpen(!open)} to="/resources">
         Resources
       </StyledLink>
     </Ul>
