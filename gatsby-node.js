@@ -2,6 +2,7 @@ const fetch = require(`node-fetch`)
 exports.sourceNodes = async ({
   actions: { createNode },
   createContentDigest,
+  createNodeId,
 }) => {
   // get data from GitHub API at build time
 
@@ -9,19 +10,50 @@ exports.sourceNodes = async ({
     `https://raw.githubusercontent.com/sindresorhus/awesome/main/readme.md`
   )
   const resultData = await result.text()
-  // create node for build time data example in the docs
-  createNode({
-    // nameWithOwner and url are arbitrary fields from the data
-    data: resultData,
-    // required fields
-    id: `awesome-list`,
-    parent: null,
-    children: [],
-    internal: {
-      type: `github`,
-      contentDigest: createContentDigest(resultData),
-    },
+  const contents = resultData.split("## ")
+
+  let content = contents.map((c, i) => {
+    let heading = ""
+    let title = ""
+    let link = ""
+    let data = []
+    heading = c.split("\n\n")[0]
+    title =
+      c.match(/\[.*?\]/g) &&
+      c.match(/\[.*?\]/g).map(x => x.replace(/[[]]/g, ""))
+    link =
+      c.match(/\(.*?\)/g) &&
+      c.match(/\(.*?\)/g).map(x => x.replace(/[()]/g, ""))
+
+    if (title) {
+      for (let i = 0; i < title.length; i++) {
+        data.push({
+          title: title[i].replace(/[[]]/g, ""),
+          link: link[i],
+          owner: link[i].split("/", 5)[3],
+          repoName:
+            link[i].split("/", 5)[4] && link[i].split("/", 5)[4].split("#")[0],
+        })
+      }
+    }
+    return { heading, data }
   })
+  content = content.splice(2, content.length)
+  console.log(content)
+  // create node for build time data example in the docs
+  content.map((cont, i) =>
+    createNode({
+      ...cont,
+      // required fields
+      id: createNodeId(i),
+      parent: null,
+      children: [],
+      internal: {
+        type: `github`,
+        contentDigest: createContentDigest(cont),
+      },
+    })
+  )
 }
 
 exports.createPages = async function ({ actions, graphql }) {
