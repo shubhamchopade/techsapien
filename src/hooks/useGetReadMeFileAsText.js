@@ -1,23 +1,22 @@
 import { useEffect, useState } from "react"
 
-const useGetReadMeFileAsText = data => {
+const useGetReadMeFileAsText = (data, setLoader) => {
   const [response, setResponse] = useState("")
-  const [status, setStatus] = useState("INITIAL")
 
   useEffect(() => {
     const getData = () => {
-      setStatus("LOADING")
+      setLoader(true)
       if (data) {
         fetch(data)
           .then(response => response.text())
           .then(data => setResponse(data))
-          .then(() => setStatus("RESOLVED"))
+          .then(() => setLoader(false))
       }
     }
     getData()
   }, [data])
 
-  return { response, status }
+  return { response }
 }
 
 export default useGetReadMeFileAsText
