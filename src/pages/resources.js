@@ -1,7 +1,7 @@
 import React from "react"
 import GetMarkDownData from "../components/resource/GetMarkDownData"
 
-const course = () => {
+const resources = () => {
   return (
     <div>
       <GetMarkDownData />
@@ -9,4 +9,4 @@ const course = () => {
   )
 }
 
-export default course
+export default resources
