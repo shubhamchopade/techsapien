@@ -27,19 +27,26 @@ exports.sourceNodes = async ({
 
     if (title) {
       for (let i = 0; i < title.length; i++) {
+        const getReadMe = async () => {
+          return await fetch(
+            `https://raw.githubusercontent.com/sindresorhus/awesome/main/readme.md`
+          )
+        }
         data.push({
           title: title[i].replace(/[[]]/g, ""),
           link: link[i],
           owner: link[i].split("/", 5)[3],
           repoName:
             link[i].split("/", 5)[4] && link[i].split("/", 5)[4].split("#")[0],
+          dummy: "fake",
+          markdown: getReadMe(),
         })
       }
     }
     return { heading, data }
   })
   content = content.splice(2, content.length)
-  console.log(content)
+
   // create node for build time data example in the docs
   content.map((cont, i) =>
     createNode({
