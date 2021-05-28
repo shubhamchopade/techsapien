@@ -34,6 +34,8 @@ const GetMarkDownData = () => {
 
   const allGithubData = data.allGithub.nodes
 
+  console.log(currentRepo)
+
   return (
     <>
       <MainWrapper>

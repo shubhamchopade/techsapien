@@ -42,18 +42,6 @@ const StarsWrapper = styled.div`
 `
 
 const Svg = ({ setCloseModal }) => {
-  const SvgButton = styled.svg`
-    cursor: pointer;
-
-    &:hover {
-      transform: scale(1.1);
-    }
-
-    path {
-      fill: ${props => props.theme.text.main};
-    }
-  `
-
   return (
     <SvgButton
       onClick={() => setCloseModal(true)}
@@ -69,12 +57,6 @@ const Svg = ({ setCloseModal }) => {
 }
 
 const Star = () => {
-  const StyledStar = styled.svg`
-    margin-right: 0.5rem;
-    path {
-      fill: ${props => props.theme.text.main};
-    }
-  `
   return (
     <StyledStar
       width="16"
@@ -92,3 +74,21 @@ const Star = () => {
     </StyledStar>
   )
 }
+
+const SvgButton = styled.svg`
+  cursor: pointer;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+
+  path {
+    fill: ${props => props.theme.text.main};
+  }
+`
+const StyledStar = styled.svg`
+  margin-right: 0.5rem;
+  path {
+    fill: ${props => props.theme.text.main};
+  }
+`
