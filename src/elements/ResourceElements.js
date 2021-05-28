@@ -9,6 +9,7 @@ export const MarkdownContainer = styled.main`
   top: 100px;
   right: 0;
   z-index: 4;
+  margin-right: 1rem;
   color: ${props => props.theme.text.main};
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
   border-radius: 10px;
