@@ -34,7 +34,7 @@ const GetMarkDownData = () => {
 
   const allGithubData = data.allGithub.nodes
 
-  console.log(allGithubData, currentRepo)
+  // console.log(allGithubData, currentRepo)
 
   return (
     <>
@@ -87,7 +87,7 @@ const GetMarkDownData = () => {
                 <div className="markdown-body">
                   <ReactMarkdown
                     skipHtml
-                    children={repoDetails.parsedMarkdown}
+                    children={repoDetails.parsedMarkdownRaw}
                   />
                 </div>
               )}
