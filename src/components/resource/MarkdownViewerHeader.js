@@ -45,13 +45,16 @@ const Svg = ({ setCloseModal }) => {
   return (
     <SvgButton
       onClick={() => setCloseModal(true)}
-      width="22"
-      height="27"
-      viewBox="0 0 22 27"
+      width="32"
+      height="32"
+      viewBox="0 0 32 32"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <path d="M22 13.5L0.250001 26.0574L0.250002 0.942631L22 13.5Z" />
+      <path
+        d="M27 8.1427L23.8573 5L16 12.8573L8.1427 5L5 8.1427L12.8573 16L5 23.8573L8.1427 27L16 19.1427L23.8573 27L27 23.8573L19.1427 16L27 8.1427Z"
+        fill="white"
+      />
     </SvgButton>
   )
 }
