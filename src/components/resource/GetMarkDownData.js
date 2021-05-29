@@ -34,7 +34,7 @@ const GetMarkDownData = () => {
 
   const allGithubData = data.allGithub.nodes
 
-  console.log(currentRepo)
+  console.log(allGithubData, currentRepo)
 
   return (
     <>
@@ -53,6 +53,12 @@ const GetMarkDownData = () => {
                         setCurrentRepo(d)
                         setLoader(true)
                       }}
+                      style={{
+                        border:
+                          d.owner === currentRepo.owner
+                            ? "2px solid white"
+                            : "",
+                      }}
                     >
                       <h4>{d.title}</h4>
                       <h6>
@@ -69,6 +75,7 @@ const GetMarkDownData = () => {
         {!closeModal && (
           <MarkdownContainer>
             <MarkdownViewerHeader
+              setCurrentRepo={setCurrentRepo}
               closeModal={closeModal}
               setCloseModal={setCloseModal}
               repoDetails={repoDetails}

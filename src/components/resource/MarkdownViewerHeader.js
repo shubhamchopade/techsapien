@@ -41,10 +41,13 @@ const StarsWrapper = styled.div`
   align-items: center;
 `
 
-const Svg = ({ setCloseModal }) => {
+const Svg = ({ setCloseModal, setCurrentRepo }) => {
   return (
     <SvgButton
-      onClick={() => setCloseModal(true)}
+      onClick={() => {
+        setCurrentRepo({})
+        setCloseModal(true)
+      }}
       width="32"
       height="32"
       viewBox="0 0 32 32"
