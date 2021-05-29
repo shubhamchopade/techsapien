@@ -34,9 +34,11 @@ const GetMarkDownData = () => {
 
   const allGithubData = data.allGithub.nodes
 
+  console.log(currentRepo)
+
   return (
     <>
-      <div style={{ display: "flex" }}>
+      <MainWrapper>
         <div>
           {allGithubData.map((c, index) => {
             return (
@@ -66,7 +68,11 @@ const GetMarkDownData = () => {
         </div>
         {!closeModal && (
           <MarkdownContainer>
-            <MarkdownViewerHeader repoDetails={repoDetails} />
+            <MarkdownViewerHeader
+              closeModal={closeModal}
+              setCloseModal={setCloseModal}
+              repoDetails={repoDetails}
+            />
             <div className="inner-container">
               {loader ? (
                 <Loader />
@@ -81,12 +87,18 @@ const GetMarkDownData = () => {
             </div>
           </MarkdownContainer>
         )}
-      </div>
+      </MainWrapper>
     </>
   )
 }
 
 export default GetMarkDownData
+
+const MainWrapper = styled.main`
+  display: flex;
+  max-width: 1600px;
+  margin: 0 auto;
+`
 
 const ResourceContainer = styled.section`
   margin: 2rem auto;

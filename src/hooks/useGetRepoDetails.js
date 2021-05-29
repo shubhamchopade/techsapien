@@ -36,7 +36,7 @@ function useGetRepoDetails(data, setCurrentRepo, setLoader) {
       }
     }
     getData()
-  }, [content])
+  }, [content, setLoader])
   return { response, content, parsedMarkdown }
 }
 
