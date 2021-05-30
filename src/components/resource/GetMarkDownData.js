@@ -49,15 +49,18 @@ const GetMarkDownData = () => {
                     <StyledBlock
                       key={idx}
                       onClick={() => {
-                        setCloseModal(false)
-                        setCurrentRepo(d)
-                        setLoader(true)
+                        if (d.owner !== currentRepo.owner) {
+                          setCloseModal(false)
+                          setCurrentRepo(d)
+                          setLoader(true)
+                        }
                       }}
                       style={{
                         border:
                           d.owner === currentRepo.owner
                             ? "2px solid white"
                             : "",
+                        cursor: d.owner === currentRepo.owner && "default",
                       }}
                     >
                       <h4>{d.title}</h4>
