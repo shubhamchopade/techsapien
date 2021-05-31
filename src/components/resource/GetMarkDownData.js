@@ -7,6 +7,7 @@ import { MarkdownContainer } from "../../elements"
 import "../../styles/github-markdown.css"
 import { Loader } from "../Loader"
 import MarkdownViewerHeader from "./MarkdownViewerHeader"
+import ShowContents from "./ShowContents"
 
 const GetMarkDownData = () => {
   const data = useStaticQuery(graphql`
@@ -83,15 +84,21 @@ const GetMarkDownData = () => {
               setCloseModal={setCloseModal}
               repoDetails={repoDetails}
             />
-            <div className="inner-container">
+
+            <div>
               {loader ? (
                 <Loader />
               ) : (
                 <div className="markdown-body">
-                  <ReactMarkdown
-                    skipHtml
-                    children={repoDetails.parsedMarkdownRaw}
-                  />
+                  <Container>
+                    <ShowContents repoHeadings={repoDetails.repoHeadings} />
+                    <div className="inner-container">
+                      <ReactMarkdown
+                        skipHtml
+                        children={repoDetails.parsedMarkdownRaw}
+                      />
+                    </div>
+                  </Container>
                 </div>
               )}
             </div>
@@ -108,6 +115,11 @@ const MainWrapper = styled.main`
   display: flex;
   max-width: 1600px;
   margin: 0 auto;
+`
+
+const Container = styled.div`
+  display: flex;
+  position: relative;
 `
 
 const ResourceContainer = styled.section`

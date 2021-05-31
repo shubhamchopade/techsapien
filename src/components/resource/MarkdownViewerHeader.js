@@ -29,6 +29,7 @@ const Wrapper = styled.section`
   background-color: ${props => props.theme.bg.neutral};
   width: 100%;
   padding: 1rem;
+  z-index: 99;
 `
 const Title = styled.h5`
   color: ${props => props.theme.text.main};

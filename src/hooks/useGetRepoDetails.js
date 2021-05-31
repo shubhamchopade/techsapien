@@ -4,6 +4,7 @@ function useGetRepoDetails(data, setCurrentRepo, setLoader) {
   const [response, setResponse] = useState("")
   const [parsedMarkdownRaw, setParsedMarkdownRaw] = useState("")
   const [parsedMarkdown, setParsedMarkdown] = useState("")
+  const [repoHeadings, setRepoHeadings] = useState([])
 
   let [content, setContent] = useState("")
   const { owner, repoName } = data
@@ -52,11 +53,12 @@ function useGetRepoDetails(data, setCurrentRepo, setLoader) {
       !contentStrings.includes(heading.toLowerCase()) &&
         rawHeadings.push(heading)
     })
+    setRepoHeadings(rawHeadings)
 
-    console.log(contents, rawHeadings)
-  })
+    // console.log(contents, rawHeadings)
+  }, [parsedMarkdownRaw])
 
-  return { response, content, parsedMarkdownRaw }
+  return { response, content, parsedMarkdownRaw, repoHeadings }
 }
 
 export default useGetRepoDetails
