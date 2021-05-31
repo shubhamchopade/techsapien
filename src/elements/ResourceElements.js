@@ -3,6 +3,7 @@ import styled from "styled-components"
 export const MarkdownContainer = styled.main`
   max-height: 30rem;
   width: 50rem;
+  min-width: 30rem;
   overflow-y: auto;
   background-color: ${props => props.theme.light.bg.main};
   position: sticky;

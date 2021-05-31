@@ -3,7 +3,7 @@ import styled from "styled-components"
 
 const MarkdownViewerHeader = props => {
   const { repoDetails } = props
-  console.log(repoDetails)
+  // console.log(repoDetails)
   return (
     <Wrapper>
       <Svg {...props} />

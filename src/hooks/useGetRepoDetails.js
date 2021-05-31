@@ -40,18 +40,20 @@ function useGetRepoDetails(data, setCurrentRepo, setLoader) {
   }, [content, setLoader])
 
   useEffect(() => {
-    let contents =
-      parsedMarkdownRaw.split("## ") || parsedMarkdownRaw.split("### ")
+    let contents = parsedMarkdownRaw.split("## ")
+    console.log(contents)
     const rawHeadings = []
 
-    contents = contents.splice(2, content.length)
+    contents = contents.splice(1, contents.length)
+    const contentStrings = ["content", "contents", "table of contents"]
 
     contents.forEach((c, i) => {
-      let heading = c.split("\n\n")[0]
-      rawHeadings.push(heading)
+      let heading = c.split("\n")[0]
+      !contentStrings.includes(heading.toLowerCase()) &&
+        rawHeadings.push(heading)
     })
 
-    console.log(parsedMarkdownRaw, rawHeadings)
+    console.log(contents, rawHeadings)
   })
 
   return { response, content, parsedMarkdownRaw }
