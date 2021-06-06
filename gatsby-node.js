@@ -17,6 +17,7 @@ exports.sourceNodes = async ({
     let title = ""
     let link = ""
     let data = []
+    let description = ""
     heading = c.split("\n\n")[0]
     title =
       c.match(/\[.*?\]/g) &&
@@ -24,6 +25,13 @@ exports.sourceNodes = async ({
     link =
       c.match(/\(.*?\)/g) &&
       c.match(/\(.*?\)/g).map(x => x.replace(/[()]/g, ""))
+    // description = c.match(/\ -.*?\./g) ? c.match(/\ -.*?\./g) : "null"
+    description = c
+      .split("\n\n")
+      .map(x => x.replace(/\-.*\)/g, ""))[1]
+      .split("\n")
+
+    console.log(description)
 
     if (title) {
       for (let i = 0; i < title.length; i++) {
@@ -38,7 +46,7 @@ exports.sourceNodes = async ({
           owner: link[i].split("/", 5)[3],
           repoName:
             link[i].split("/", 5)[4] && link[i].split("/", 5)[4].split("#")[0],
-          dummy: "fake",
+          description: description[i],
           markdown: getReadMe(),
         })
       }
@@ -46,6 +54,8 @@ exports.sourceNodes = async ({
     return { heading, data }
   })
   content = content.splice(2, content.length)
+
+  // console.log(content)
 
   // create node for build time data example in the docs
   content.map((cont, i) =>

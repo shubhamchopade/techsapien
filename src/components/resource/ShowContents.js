@@ -3,7 +3,7 @@ import styled from "styled-components"
 
 const ShowContents = props => {
   const { repoHeadings } = props
-  console.log(repoHeadings)
+  // console.log(repoHeadings)
   return (
     <SideTray>
       {repoHeadings.map((heading, index) => (

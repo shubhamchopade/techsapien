@@ -42,7 +42,7 @@ function useGetRepoDetails(data, setCurrentRepo, setLoader) {
 
   useEffect(() => {
     let contents = parsedMarkdownRaw.split("## ")
-    console.log(contents)
+    // console.log(contents)
     const rawHeadings = []
 
     contents = contents.splice(1, contents.length)
