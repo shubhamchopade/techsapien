@@ -20,6 +20,7 @@ const GetMarkDownData = () => {
             owner
             repoName
             title
+            description
           }
         }
       }
@@ -63,10 +64,7 @@ const GetMarkDownData = () => {
                       }}
                     >
                       <h4>{d.title}</h4>
-                      <h6>
-                        Async non-blocking event-driven JavaScript runtime built
-                        on Chrome's V8 JavaScript engine.
-                      </h6>
+                      <h6>{d.description}</h6>
                     </StyledBlock>
                   ))}
                 </ResourceSectionWrapper>
