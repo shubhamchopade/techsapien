@@ -94,18 +94,8 @@ export const HeroText = styled.section`
     font-family: ${props => props.theme.fontFamily.paragraph};
 
     .get-started {
-      background: -webkit-linear-gradient(
-        109.08deg,
-        #2298bd 6.16%,
-        #0ed7b5 91.66%
-      );
-      background-clip: text;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      display: inline-flex;
-      justify-content: center;
-      align-items: center;
-      font-weight: 700;
+      color: ${props => props.theme.text.secondary};
+      font-style: italic;
 
       .arrow {
         width: 1.5rem;

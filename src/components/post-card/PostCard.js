@@ -142,13 +142,8 @@ const Description = styled.p`
 `
 
 const BlogLink = styled.div`
-  background: -webkit-linear-gradient(109.08deg, #2298bd 6.16%, #0ed7b5 91.66%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  font-weight: 600;
-  font-size: 0.7rem;
-  display: flex;
-  align-items: center;
+color: ${props => props.theme.text.neutral};
+font-size: 0.7rem;
 
   .arrow {
     width: 1.5rem;
