@@ -49,7 +49,7 @@ export const Footer = () => {
         </FooterSocialIcons>
         <P>
           Developed and Designed by{" "}
-          <a href="https://shubhamchopade.ml" target="_blank" rel="noreferrer">
+          <a href="https://shubhamchopade.com" target="_blank" rel="noreferrer">
             Shubham Chopade
           </a>
           . <br /> &#169; {new Date().getFullYear()} All rights reserved.
