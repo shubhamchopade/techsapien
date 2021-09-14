@@ -24,12 +24,7 @@ const About = () => {
       <h1>About</h1>
       <div className="wrapper">
         <p>
-          Tech sapien is a community targeted towards the programmers who strive
-          for efficiency. The mind behind tech sapien is Shubham Chopade. He is
-          a motivated individual whose passion is teaching. Having completed his
-          Bachelor's degree in Electronics and Telecommunication, he is out here
-          teaching web development. His ultimate target from this website is to
-          help coders evolve.
+        Tech Sapien is a blog focused on providing the best knowledge on web development. A platform where you can find tips and tricks related to web development. Find the React and Javascript concepts explained with code snippets and live examples. Additionally, I am also working on adding these 2  amazing sections — Courses and Resources. Courses will be a series of interactive content explaining the concepts in Technology. The topics covered will cover Flexbox, Grid, API,   Tech Sapien is also a collection of the famous "awesome resources". A curated and awesome lists about all kinds of interesting topics. The feature is still in progress.
         </p>
         <motion.img
           initial={{ opacity: 0 }}
