@@ -4,6 +4,7 @@ import Img from "gatsby-image"
 import styled from "styled-components"
 import { CourseWrapper } from "../components/course/Elements"
 import { MDXRenderer } from "gatsby-plugin-mdx"
+import { PostWrapper } from "../elements"
 
 const singleCourse = ({ data }) => {
   const featureImage = data.mdx.frontmatter.featureImage.childImageSharp.fixed
@@ -14,17 +15,14 @@ const singleCourse = ({ data }) => {
 
   return (
     <CourseWrapper>
-      <div className="container">
+      <div className="">
         <StyledImg fixed={featureImage} />
         <div>
-          <h1>{data.mdx.frontmatter.title}</h1>
-          <MDXRenderer>{data.mdx.body}</MDXRenderer>
-          <p>
-            Meanwhile check out{" "}
-            <Link className="link" to="/resource">
-              resources
-            </Link>{" "}
-          </p>
+          {/* <h1>{data.mdx.frontmatter.title}</h1> */}
+          <PostWrapper>
+
+            <MDXRenderer>{data.mdx.body}</MDXRenderer>
+          </PostWrapper>
 
         </div>
       </div>

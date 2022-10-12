@@ -83,8 +83,8 @@ export const RootElement = ({ element }) => {
     isDark === "dark"
       ? { ...dark, ...commonStyles }
       : isDark === "warm"
-      ? { ...warm, ...commonStyles }
-      : { ...light, ...commonStyles }
+        ? { ...warm, ...commonStyles }
+        : { ...light, ...commonStyles }
 
   let fontFamily =
     isSans === "sans" ? font.sans : isSans === "serif" ? font.serif : font.slab
