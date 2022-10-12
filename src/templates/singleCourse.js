@@ -3,6 +3,7 @@ import { graphql, Link } from "gatsby"
 import Img from "gatsby-image"
 import styled from "styled-components"
 import { CourseWrapper } from "../components/course/Elements"
+import { MDXRenderer } from "gatsby-plugin-mdx"
 
 const singleCourse = ({ data }) => {
   const featureImage = data.mdx.frontmatter.featureImage.childImageSharp.fixed
@@ -17,18 +18,14 @@ const singleCourse = ({ data }) => {
         <StyledImg fixed={featureImage} />
         <div>
           <h1>{data.mdx.frontmatter.title}</h1>
-          <p>
-            Course coming soon...
-            <span role="img" aria-label="emoji">
-              😎
-            </span>
-          </p>
+          <MDXRenderer>{data.mdx.body}</MDXRenderer>
           <p>
             Meanwhile check out{" "}
             <Link className="link" to="/resource">
               resources
             </Link>{" "}
           </p>
+
         </div>
       </div>
     </CourseWrapper>

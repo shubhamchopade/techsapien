@@ -76,10 +76,10 @@ const index = () => {
         </div>
       </BlogSliderContainer>
 
-      <StyledHeading>RESOURCES</StyledHeading>
+      {/* <StyledHeading>RESOURCES</StyledHeading>
       <ResourcesContainer>
         <AllResources />
-      </ResourcesContainer>
+      </ResourcesContainer> */}
     </Landing>
   )
 }
