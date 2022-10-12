@@ -130,26 +130,27 @@ exports.createPages = async function ({ actions, graphql }) {
     })
   })
 
-  actions.createPage({
-    path: "/resource",
-    component: require.resolve("./src/templates/allResources.js"),
-  })
+  // actions.createPage({
+  //   path: "/resource",
+  //   component: require.resolve("./src/templates/allResources.js"),
+  // })
   actions.createPage({
     path: "/course",
     component: require.resolve("./src/templates/allCourses.js"),
   })
 
   data.all.edges.forEach((edge, index) => {
-    if (edge.node.frontmatter.posttype === "resource") {
-      //Create Single Resource
-      const slug = `/resource/${edge.node.frontmatter.slug}`
-      const id = edge.node.id
-      actions.createPage({
-        path: slug,
-        component: require.resolve("./src/templates/singleResource.js"),
-        context: { id },
-      })
-    } else if (edge.node.frontmatter.posttype === "blog") {
+    // if (edge.node.frontmatter.posttype === "resource") {
+    //   //Create Single Resource
+    //   const slug = `/resource/${edge.node.frontmatter.slug}`
+    //   const id = edge.node.id
+    //   actions.createPage({
+    //     path: slug,
+    //     component: require.resolve("./src/templates/singleResource.js"),
+    //     context: { id },
+    //   })
+    // } else 
+    if (edge.node.frontmatter.posttype === "blog") {
       //Create Single Blog Posts
 
       const postsArr = data.posts.edges

@@ -69,13 +69,13 @@ module.exports = {
         path: `${__dirname}/src/posts`,
       },
     },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `resources`,
-        path: `${__dirname}/src/resources`,
-      },
-    },
+    // {
+    //   resolve: `gatsby-source-filesystem`,
+    //   options: {
+    //     name: `resources`,
+    //     path: `${__dirname}/src/resources`,
+    //   },
+    // },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
