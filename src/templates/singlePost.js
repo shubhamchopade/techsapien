@@ -70,7 +70,7 @@ const singlePost = ({ pageContext, data }) => {
               />
             </svg>
             <FacebookShareButton
-              url={`https://techsapien.org/blog/${data.mdx.frontmatter.slug}`}
+              url={`https://techsapien.dev/blog/${data.mdx.frontmatter.slug}`}
             >
               <svg
                 width="42"
@@ -87,7 +87,7 @@ const singlePost = ({ pageContext, data }) => {
               </svg>
             </FacebookShareButton>
             <TwitterShareButton
-              url={`https://techsapien.org/blog/${data.mdx.frontmatter.slug}`}
+              url={`https://techsapien.dev/blog/${data.mdx.frontmatter.slug}`}
               title={data.mdx.frontmatter.title}
             >
               <svg

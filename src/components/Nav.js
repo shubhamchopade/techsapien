@@ -37,9 +37,6 @@ export const Burger = () => {
 export const RightNav = ({ open, setOpen }) => {
   return (
     <Ul open={open}>
-      <StyledLink onClick={() => setOpen(!open)} to="/about">
-        About
-      </StyledLink>
       <StyledLink onClick={() => setOpen(!open)} to="/course">
         Courses
       </StyledLink>
