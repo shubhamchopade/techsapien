@@ -66,4 +66,4 @@ Contributions are welcome! If you find any issues or want to add new features, f
 
 ## License
 
-This project is licensed under the MIT License. Feel free to use and modify it according to your needs. See the `LICENSE` file for more information.
+This project is licensed under the BSD Zero Clause License. Feel free to use and modify it according to your needs. See the `LICENSE` file for more information.
